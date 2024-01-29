@@ -17,6 +17,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import TextField from "@mui/material/TextField";
+import Video from "../../pages/Video";
 
 const drawerWidth = 240;
 
@@ -191,7 +192,7 @@ export default function ResponsiveDrawer(props: Props) {
         }}
       >
         <Toolbar />
-        <Typography paragraph></Typography>
+        <Video />
         <Typography paragraph></Typography>
       </Box>
     </Box>

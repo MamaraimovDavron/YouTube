@@ -1,0 +1,68 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "JavaScript : How to prevent The play() request was interrupted by a call to pause() error?",
+      "link": "https://www.youtube.com/embed/p_cqR1pwggQ?si=-fUo-oP5I-e7slkg"
+    },
+    {
+      "id": "2",
+      "title": "Abituriyentlar Universitetga Kirishda Bu Xatolarni Aslo Qilmang! | 5 Maslahat | MARIFAT JAMAL",
+      "link": "https://www.youtube.com/embed/AGvINkfLq_0?si=D5s0TqQBYBnKCzIY"
+    },
+    {
+      "id": "3",
+      "title": "10 ISLOM KARIMOV QANDAY SHAXS EDI? — Lolazor podcast",
+      "link": "https://www.youtube.com/embed/oCWeeC-qK9A?si=xpw8F4J_bqDrT4Qt"
+    },
+    {
+      "id": "4",
+      "title": "Ochiq muloqot: Maishiy texnikachilar va Otabek Bakirov bahsi",
+      "link": "https://www.youtube.com/embed/tuyBe89eC2U?si=lB-ykNW65IQaqIB5"
+    },
+    {
+      "id": "5",
+      "title": "Pirlar uchmaydi, muridlar uchiradi | Husayn Buxoriy",
+      "link": "https://www.youtube.com/embed/OEYe16hCyOA?si=A1Dh_lMkwS_Gnj6T"
+    },
+
+    {
+      "id": "6",
+      "title": "Победитель Grand Prix Portugal 2024 - Йошито Ходжо -81 кг",
+      "link": "https://www.youtube.com/embed/-fT4faBtjvE?si=DyfE3mt_jgFf6UVJ"
+    },
+
+    {
+      "id": "7",
+      "title": "Pirlar uchmaydi, muridlar uchiradi | Husayn Buxoriy",
+      "link": "https://www.youtube.com/embed/OEYe16hCyOA?si=A1Dh_lMkwS_Gnj6T"
+    },
+
+    {
+      "id": "8",
+      "title": "SHAXSIY HAYOT HAQIDA | XATOLARI KO'P BO'LGAN OTABEK MAHKAMOV BILAN SUHBAT ",
+      "link": "https://www.youtube.com/embed/EbzDuSG1Lhw?si=IKD7SReNH2wo7NwL"
+    },
+
+    {
+      "id": "9",
+      "title": "Gods,bow before me or die",
+      "link": "https://www.youtube.com/embed/11FlsNc5tlc?si=00zZxWcLJHaLsg38"
+    },
+    {
+      "id": "10",
+      "title": "SHARĞUNDA KATTA KURASH BOSHLANDI 30.1.2024",
+      "link": "https://www.youtube.com/embed/-r3MtjUerzY?si=L-TaWAgBlgnVjDlb"
+    },
+    {
+      "id": "11",
+      "title": "Tibet Training | Funny Clip | Johnny English Reborn | Mr Bean Official",
+      "link": "https://www.youtube.com/embed/7mT8El4mBVw?si=5HarSarp1F1bg0K9"
+    },
+    {
+      "id": "12",
+      "title": "The Chase | Funny Clip | Johnny English Reborn | Mr Bean Official",
+      "link": "https://www.youtube.com/embed/Ua3wlssr6rw?si=oMOEOnlZZ1vMEGUB"
+    }
+  ]
+}

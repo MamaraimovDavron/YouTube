@@ -1,4 +1,5 @@
 import * as React from "react";
+// import { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -18,6 +19,8 @@ import Typography from "@mui/material/Typography";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import TextField from "@mui/material/TextField";
 import Video from "../../pages/Video";
+import { Grid } from "@mui/material";
+import { getLinks } from "../../api";
 
 const drawerWidth = 240;
 
@@ -103,6 +106,25 @@ export default function ResponsiveDrawer(props: Props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  const [links, setLinks] = React.useState([]);
+
+  React.useEffect(() => {
+    // const data = async () => {
+    //   await getLinks();
+    //   setLinks(data);
+    // };
+    const getAllLinks = async () => {
+      const data = await getLinks();
+      setLinks(data);
+    };
+
+    getAllLinks();
+  }, []);
+
+  // const getLink = async () => {
+  //   const data = getLinks();
+  //   setLinks(data);
+  // };
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -183,6 +205,7 @@ export default function ResponsiveDrawer(props: Props) {
           {drawer}
         </Drawer>
       </Box>
+
       <Box
         component="main"
         sx={{
@@ -192,8 +215,35 @@ export default function ResponsiveDrawer(props: Props) {
         }}
       >
         <Toolbar />
-        <Video />
-        <Typography paragraph></Typography>
+        <Box sx={{ display: "flex" }}>
+          <Grid container xs={12} sx={{ display: "column", gap: "40px" }}>
+            <Grid
+              xs={12}
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            ></Grid>
+
+            <Grid
+              xs={12}
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            ></Grid>
+            <Grid
+              xs={12}
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            ></Grid>
+          </Grid>
+        </Box>
       </Box>
     </Box>
   );

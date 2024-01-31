@@ -1,5 +1,5 @@
-import * as React from "react";
-// import { useState, useEffect } from "react";
+// import * as React from "react";
+import { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -20,7 +20,23 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import TextField from "@mui/material/TextField";
 import Video from "../../pages/Video";
 import { Grid } from "@mui/material";
-import { getLinks } from "../../api";
+import { getLinks } from "../../api/index";
+import styled from "styled-components";
+
+const Container = styled.div`
+  /* width: 100%; */
+  /* height: 88vh; */
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 20px;
+  .item {
+    /* height: 100%; */
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+`;
 
 const drawerWidth = 240;
 
@@ -34,8 +50,8 @@ interface Props {
 
 export default function ResponsiveDrawer(props: Props) {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [isClosing, setIsClosing] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -106,9 +122,9 @@ export default function ResponsiveDrawer(props: Props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
-  const [links, setLinks] = React.useState([]);
+  const [links, setLinks] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // const data = async () => {
     //   await getLinks();
     //   setLinks(data);
@@ -117,10 +133,10 @@ export default function ResponsiveDrawer(props: Props) {
       const data = await getLinks();
       setLinks(data);
     };
-
     getAllLinks();
   }, []);
 
+  // console.log(links, "links");
   // const getLink = async () => {
   //   const data = getLinks();
   //   setLinks(data);
@@ -215,35 +231,34 @@ export default function ResponsiveDrawer(props: Props) {
         }}
       >
         <Toolbar />
-        <Box sx={{ display: "flex" }}>
-          <Grid container xs={12} sx={{ display: "column", gap: "40px" }}>
-            <Grid
-              xs={12}
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            ></Grid>
 
-            <Grid
-              xs={12}
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            ></Grid>
-            <Grid
-              xs={12}
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            ></Grid>
-          </Grid>
-        </Box>
+        {/* {links.map((item, index) => {
+            return (
+              <Grid container xs={12} sx={{ display: "column", gap: "40px" }}>
+                <Grid
+                  xs={12}
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    gap: "120px",
+                  }}
+                >
+                  <Video title={item.title} link={item.link} />
+                </Grid>
+              </Grid>
+            );
+          })} */}
+
+        <Container>
+          {links.map((item, index) => {
+            return (
+              <div className="item">
+                <Video title={item.title} link={item.link} />
+              </div>
+            );
+          })}
+        </Container>
       </Box>
     </Box>
   );

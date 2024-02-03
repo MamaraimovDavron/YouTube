@@ -251,13 +251,14 @@ export default function ResponsiveDrawer(props: Props) {
           })} */}
 
         <Container>
-          {links.map((item, index) => {
-            return (
-              <div className="item">
-                <Video title={item.title} link={item.link} />
-              </div>
-            );
-          })}
+          {links &&
+            links.map((item, index) => {
+              return (
+                <div className="item">
+                  <Video title={item.title} link={item.link} />
+                </div>
+              );
+            })}
         </Container>
       </Box>
     </Box>

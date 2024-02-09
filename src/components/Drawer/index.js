@@ -19,7 +19,6 @@ import Typography from "@mui/material/Typography";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import TextField from "@mui/material/TextField";
 import Video from "../../pages/Video";
-import { Grid } from "@mui/material";
 import { getLinks } from "../../api/index";
 import styled from "styled-components";
 
@@ -125,10 +124,6 @@ export default function ResponsiveDrawer(props: Props) {
   const [links, setLinks] = useState([]);
 
   useEffect(() => {
-    // const data = async () => {
-    //   await getLinks();
-    //   setLinks(data);
-    // };
     const getAllLinks = async () => {
       const data = await getLinks();
       setLinks(data);
@@ -136,11 +131,8 @@ export default function ResponsiveDrawer(props: Props) {
     getAllLinks();
   }, []);
 
-  // console.log(links, "links");
-  // const getLink = async () => {
-  //   const data = getLinks();
-  //   setLinks(data);
-  // };
+  console.log(links, "links");
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -232,32 +224,15 @@ export default function ResponsiveDrawer(props: Props) {
       >
         <Toolbar />
 
-        {/* {links.map((item, index) => {
-            return (
-              <Grid container xs={12} sx={{ display: "column", gap: "40px" }}>
-                <Grid
-                  xs={12}
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    gap: "120px",
-                  }}
-                >
-                  <Video title={item.title} link={item.link} />
-                </Grid>
-              </Grid>
-            );
-          })} */}
-
         <Container>
-          {links.map((item, index) => {
-            return (
-              <div className="item">
-                <Video title={item.title} link={item.link} />
-              </div>
-            );
-          })}
+          {links &&
+            links.map((item, index) => {
+              return (
+                <div className="item">
+                  <Video title={item.title} link={item.link} />
+                </div>
+              );
+            })}
         </Container>
       </Box>
     </Box>

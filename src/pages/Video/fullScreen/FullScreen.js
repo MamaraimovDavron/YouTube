@@ -148,17 +148,9 @@ const Box = styled.div`
 `;
 
 const FullScreen = () => {
+  // api
+
   const [links, setLinks] = useState([]);
-  const [inc, setInc] = useState(10);
-  const [dec, setDec] = useState(40);
-
-  const Increment = () => {
-    setInc(inc + 1);
-  };
-
-  const Decrement = () => {
-    setDec(dec + 1);
-  };
 
   useEffect(() => {
     const getAllLinks = async () => {
@@ -169,6 +161,17 @@ const FullScreen = () => {
   }, []);
 
   console.log(links, "linksFull");
+
+  const [inc, setInc] = useState(links.like);
+  const [dec, setDec] = useState(links.dislike);
+
+  const Increment = () => {
+    setInc(inc + 1);
+  };
+
+  const Decrement = () => {
+    setDec(dec + 1);
+  };
 
   return (
     <Box>

@@ -22,6 +22,12 @@ import Video from "../../pages/Video";
 import { getLinks } from "../../api/index";
 import styled from "styled-components";
 
+const Img = styled.img`
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+`;
+
 const Container = styled.div`
   /* width: 100%; */
   /* height: 88vh; */
@@ -48,6 +54,20 @@ interface Props {
 }
 
 export default function ResponsiveDrawer(props: Props) {
+  // api
+  const [links, setLinks] = useState([]);
+
+  useEffect(() => {
+    const getAllLinks = async () => {
+      const data = await getLinks();
+      setLinks(data);
+    };
+    getAllLinks();
+  }, []);
+
+  console.log(links, "links");
+
+  // api
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -114,24 +134,30 @@ export default function ResponsiveDrawer(props: Props) {
           </ListItem>
         ))}
       </List>
+
+      <Divider />
+      <List>
+        {links?.map((item, index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
+                <Img sx={{ width: "40" }} src={item.imgUrl} alt="" />
+              </ListItemIcon>
+              <ListItemText
+                primary={item.channelName}
+                sx={{ fontSize: "5px" }}
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
     </div>
   );
 
   // Remove this const when copying and pasting into your project.
   const container =
     window !== undefined ? () => window().document.body : undefined;
-
-  const [links, setLinks] = useState([]);
-
-  useEffect(() => {
-    const getAllLinks = async () => {
-      const data = await getLinks();
-      setLinks(data);
-    };
-    getAllLinks();
-  }, []);
-
-  console.log(links, "links");
 
   return (
     <Box sx={{ display: "flex" }}>

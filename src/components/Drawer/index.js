@@ -225,15 +225,41 @@ export default function ResponsiveDrawer(props: Props) {
         <Toolbar />
 
         <Container>
-          {links &&
-            links.map((item, index) => {
-              return (
-                <div className="item">
-                  <Video title={item.title} link={item.link} />
-                </div>
-              );
-            })}
+          {links?.map((item, index) => {
+            return (
+              <div key={index} className="item">
+                <Video title={item.title} link={item.link} />
+              </div>
+            );
+          })}
         </Container>
+
+        {/* <Container>
+          <div className="item">
+            <Video title={links.title} link={links.link} />
+          </div>
+          <div className="item">
+            <Video title={links.title} link={links.link} />
+          </div>
+          <div className="item">
+            <Video title={links.title} link={links.link} />
+          </div>
+          <div className="item">
+            <Video title={links.title} link={links.link} />
+          </div>
+          <div className="item">
+            <Video title={links.title} link={links.link} />
+          </div>
+          <div className="item">
+            <Video title={links.title} link={links.link} />
+          </div>
+          <div className="item">
+            <Video title={links.title} link={links.link} />
+          </div>
+          <div className="item">
+            <Video title={links.title} link={links.link} />
+          </div>
+        </Container> */}
       </Box>
     </Box>
   );

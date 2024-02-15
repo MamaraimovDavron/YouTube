@@ -3,7 +3,7 @@ import styled from "styled-components";
 // import Video from "../../Video/index";
 // import { getLinks } from "../../../api";
 import ReactPlayer from "react-player";
-import { getLinks } from "../../../api";
+import { getLikes, getLinks } from "../../../api";
 import { AiFillLike } from "react-icons/ai";
 import { AiFillDislike } from "react-icons/ai";
 
@@ -148,30 +148,29 @@ const Box = styled.div`
 `;
 
 const FullScreen = () => {
-  // api
+  const [like, setLike] = useState([]);
+  const [dislike, setDislike] = useState([]);
 
-  const [links, setLinks] = useState([]);
+  console.log(like, "like");
+  console.log(dislike, "dislike");
+  // const [like, setLike] = useState({});
+
+  const dislikeIncrement = () => {
+    setDislike(dislike + 1);
+  };
+
+  const likeIncrement = () => {
+    setLike(like + 1);
+  };
 
   useEffect(() => {
     const getAllLinks = async () => {
       const data = await getLinks();
-      setLinks(data);
+      setLike(data[0].like);
+      setDislike(data[0].dislike);
     };
     getAllLinks();
   }, []);
-
-  console.log(links, "linksFull");
-
-  const [inc, setInc] = useState(links.like);
-  const [dec, setDec] = useState(links.dislike);
-
-  const Increment = () => {
-    setInc(inc + 1);
-  };
-
-  const Decrement = () => {
-    setDec(dec + 1);
-  };
 
   return (
     <Box>
@@ -197,14 +196,29 @@ const FullScreen = () => {
 
           <button className="subscribe">Subscribe</button>
 
+          {/* {links?.map((item, index) => {
+            return (
+              <div className="likes" key={index}>
+                <button className="like">
+                  <AiFillLike className="icon" />
+                  <p>{item.like}</p>
+                </button>
+                <button className="dislike">
+                  <AiFillDislike className="icon" />
+                  <p>{item.dislike}</p>
+                </button>
+              </div>
+            );
+          })}  */}
+
           <div className="likes">
-            <button className="like" onClick={Increment}>
-              <AiFillLike className="icon" />
-              <p>{inc}</p>
+            <button className="like">
+              <AiFillLike className="icon" onClick={likeIncrement} />
+              <p>{like}</p>
             </button>
-            <button className="dislike" onClick={Decrement}>
-              <AiFillDislike className="icon" />
-              <p>{dec}</p>
+            <button className="dislike">
+              <AiFillDislike className="icon" onClick={dislikeIncrement} />
+              <p>{dislike}</p>
             </button>
           </div>
         </div>

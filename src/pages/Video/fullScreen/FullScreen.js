@@ -4,6 +4,8 @@ import styled from "styled-components";
 // import { getLinks } from "../../../api";
 import ReactPlayer from "react-player";
 import { getLinks } from "../../../api";
+import { AiFillLike } from "react-icons/ai";
+import { AiFillDislike } from "react-icons/ai";
 
 const Box = styled.div`
   width: 100%;
@@ -20,6 +22,7 @@ const Box = styled.div`
     width: 100%;
     gap: 10px;
     padding: 20px 10px;
+    border: 1px solid;
     h3 {
       font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
         "Lucida Sans", Arial, sans-serif;
@@ -55,7 +58,7 @@ const Box = styled.div`
         }
       }
 
-      button {
+      .subscribe {
         border: none;
         padding: 8px 24px;
         border-radius: 16px;
@@ -68,6 +71,55 @@ const Box = styled.div`
         &:hover {
           background-color: #010;
           cursor: pointer;
+        }
+      }
+
+      .likes {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .like {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          border-radius: 16px;
+          padding: 8px 16px;
+          gap: 5px;
+          cursor: pointer;
+          .icon {
+            font-size: 20px;
+          }
+          p {
+            margin: 0;
+            padding: 0;
+            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+              "Lucida Sans", Arial, sans-serif;
+          }
+        }
+
+        .dislike {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          border-radius: 16px;
+          padding: 8px 16px;
+          gap: 5px;
+          cursor: pointer;
+
+          .icon {
+            font-size: 20px;
+          }
+          p {
+            margin: 0;
+            padding: 0;
+            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+              "Lucida Sans", Arial, sans-serif;
+          }
         }
       }
     }
@@ -97,6 +149,16 @@ const Box = styled.div`
 
 const FullScreen = () => {
   const [links, setLinks] = useState([]);
+  const [inc, setInc] = useState(10);
+  const [dec, setDec] = useState(40);
+
+  const Increment = () => {
+    setInc(inc + 1);
+  };
+
+  const Decrement = () => {
+    setDec(dec + 1);
+  };
 
   useEffect(() => {
     const getAllLinks = async () => {
@@ -130,7 +192,18 @@ const FullScreen = () => {
             <h6>4,92 тыс. подписчиков</h6>
           </span>
 
-          <button>Subscribe</button>
+          <button className="subscribe">Subscribe</button>
+
+          <div className="likes">
+            <button className="like" onClick={Increment}>
+              <AiFillLike className="icon" />
+              <p>{inc}</p>
+            </button>
+            <button className="dislike" onClick={Decrement}>
+              <AiFillDislike className="icon" />
+              <p>{dec}</p>
+            </button>
+          </div>
         </div>
       </div>
 

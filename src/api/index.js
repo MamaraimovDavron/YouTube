@@ -8,10 +8,11 @@ const getLinks = async () => {
   } catch (error) {}
 };
 
-// const getLikes = async () => {
-//   try {
-//     const res = await axios.get("http://localhost:8000/like");
-//     return res.data;
-//   } catch (error) {}
-// };
-export { getLinks };
+const getInputValue = async () => {
+  try {
+    const res = await axios.get("http://localhost:8000/posts");
+    console.log(res, "post");
+    return res.data;
+  } catch (error) {}
+};
+export { getLinks, getInputValue };

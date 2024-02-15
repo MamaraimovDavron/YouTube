@@ -7,7 +7,8 @@
       "channelName": "The King of Random",
       "title": "JavaScript : How to prevent The play() request was interrupted by a call to pause() error?",
       "link": "https://www.youtube.com/embed/p_cqR1pwggQ?si=-fUo-oP5I-e7slkg",
-      "imgUrl": "https://cs5.livemaster.ru/storage/60/90/020b6db048f326340d1f4d53630j--sumki-i-aksessuary-muzhskoj-kozhanyj-koshelek-volk.jpg"
+      "imgUrl": "https://cs5.livemaster.ru/storage/60/90/020b6db048f326340d1f4d53630j--sumki-i-aksessuary-muzhskoj-kozhanyj-koshelek-volk.jpg",
+      "comment": "The King of Random"
     },
     {
       "id": "2",
@@ -16,7 +17,8 @@
       "channelName": "National Geographic",
       "title": "Abituriyentlar Universitetga Kirishda Bu Xatolarni Aslo Qilmang! | 5 Maslahat | MARIFAT JAMAL",
       "link": "https://www.youtube.com/embed/AGvINkfLq_0?si=D5s0TqQBYBnKCzIY",
-      "imgUrl": "https://www.kino-teatr.ru/news/27698/245954.jpg"
+      "imgUrl": "https://www.kino-teatr.ru/news/27698/245954.jpg",
+      "comment": "National Geographic"
     },
     {
       "id": "3",
@@ -25,7 +27,8 @@
       "channelName": "Carsh Course",
       "title": "10 ISLOM KARIMOV QANDAY SHAXS EDI? — Lolazor podcast",
       "link": "https://www.youtube.com/embed/oCWeeC-qK9A?si=xpw8F4J_bqDrT4Qt",
-      "imgUrl": "https://i.ytimg.com/vi/JF6_R2TevqY/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgSSgzMA8=&amp;rs=AOn4CLDuMqLOzRwpG-z7csRGRn0aKwgM3w"
+      "imgUrl": "https://i.ytimg.com/vi/JF6_R2TevqY/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgSSgzMA8=&amp;rs=AOn4CLDuMqLOzRwpG-z7csRGRn0aKwgM3w",
+      "comment": "Carsh Course"
     },
     {
       "id": "4",
@@ -34,7 +37,8 @@
       "channelName": "Ted-ed",
       "title": "Ochiq muloqot: Maishiy texnikachilar va Otabek Bakirov bahsi",
       "link": "https://www.youtube.com/embed/tuyBe89eC2U?si=lB-ykNW65IQaqIB5",
-      "imgUrl": "https://i.ytimg.com/vi/vcDy8Hg-X9w/maxresdefault.jpg"
+      "imgUrl": "https://i.ytimg.com/vi/vcDy8Hg-X9w/maxresdefault.jpg",
+      "comment": "Ted-ed"
     },
     {
       "id": "5",
@@ -43,9 +47,9 @@
       "channelName": "Alltimes10s",
       "title": "Pirlar uchmaydi, muridlar uchiradi | Husayn Buxoriy",
       "link": "https://www.youtube.com/embed/OEYe16hCyOA?si=A1Dh_lMkwS_Gnj6T",
-      "imgUrl": "https://i.pinimg.com/originals/62/b4/55/62b455c8589f38af8138d2d9b511b206.jpg"
+      "imgUrl": "https://i.pinimg.com/originals/62/b4/55/62b455c8589f38af8138d2d9b511b206.jpg",
+      "comment": "Alltimes10s"
     },
-
     {
       "id": "6",
       "like": 10,
@@ -53,9 +57,9 @@
       "channelName": "SciShow",
       "title": "React-Router Hooks || Complete guide to useParams hook..",
       "link": "https://www.youtube.com/embed/vWgaNYDHNds?si=3VQUdTkEqr1MvS8B",
-      "imgUrl": "https://i.ytimg.com/vi/vcDy8Hg-X9w/maxresdefault.jpg"
+      "imgUrl": "https://i.ytimg.com/vi/vcDy8Hg-X9w/maxresdefault.jpg",
+      "comment": "SciShow"
     },
-
     {
       "id": "7",
       "like": 10,
@@ -63,9 +67,9 @@
       "channelName": "Veritasium",
       "title": "Pirlar uchmaydi, muridlar uchiradi | Husayn Buxoriy",
       "link": "https://www.youtube.com/embed/OEYe16hCyOA?si=A1Dh_lMkwS_Gnj6T",
-      "imgUrl": "https://skillbox.ru/upload/setka_images/08433606092021_accf102caaa970ce65d217b9ae9a8e9a57caa67c.jpg"
+      "imgUrl": "https://skillbox.ru/upload/setka_images/08433606092021_accf102caaa970ce65d217b9ae9a8e9a57caa67c.jpg",
+      "comment": "Veritasium"
     },
-
     {
       "id": "8",
       "like": 10,
@@ -73,9 +77,9 @@
       "channelName": "Khan Academy",
       "title": "SHAXSIY HAYOT HAQIDA | XATOLARI KO'P BO'LGAN OTABEK MAHKAMOV BILAN SUHBAT ",
       "link": "https://www.youtube.com/embed/EbzDuSG1Lhw?si=IKD7SReNH2wo7NwL",
-      "imgUrl": "https://navlib.ru/wp-content/uploads/2021/08/1030720282-scaled-e1629468084328.jpg"
+      "imgUrl": "https://navlib.ru/wp-content/uploads/2021/08/1030720282-scaled-e1629468084328.jpg",
+      "comment": "Khan Academy"
     },
-
     {
       "id": "9",
       "like": 10,
@@ -83,7 +87,8 @@
       "channelName": "INSIDER",
       "title": "Gods,bow before me or die",
       "link": "https://www.youtube.com/embed/11FlsNc5tlc?si=00zZxWcLJHaLsg38",
-      "imgUrl": "https://w.forfun.com/fetch/7a/7a3deed1582cab1ba30aed2353a4a240.jpeg"
+      "imgUrl": "https://w.forfun.com/fetch/7a/7a3deed1582cab1ba30aed2353a4a240.jpeg",
+      "comment": "INSIDER"
     },
     {
       "id": "10",
@@ -92,7 +97,8 @@
       "channelName": "Tom Scott",
       "title": "SHARĞUNDA KATTA KURASH BOSHLANDI 30.1.2024",
       "link": "https://www.youtube.com/embed/-r3MtjUerzY?si=L-TaWAgBlgnVjDlb",
-      "imgUrl": "https://i.playground.ru/p/qTCdruWS707QCA4yR_TiSA.jpeg"
+      "imgUrl": "https://i.playground.ru/p/qTCdruWS707QCA4yR_TiSA.jpeg",
+      "comment": "Tom Scott"
     },
     {
       "id": "11",
@@ -101,7 +107,8 @@
       "channelName": "SmarterEveryDay",
       "title": "Tibet Training | Funny Clip | Johnny English Reborn | Mr Bean Official",
       "link": "https://www.youtube.com/embed/7mT8El4mBVw?si=5HarSarp1F1bg0K9",
-      "imgUrl": "https://prv0.lori-images.net/britanskaya-korotkosherstnaya-koshka-0029147248-preview.jpg"
+      "imgUrl": "https://prv0.lori-images.net/britanskaya-korotkosherstnaya-koshka-0029147248-preview.jpg",
+      "comment": "SmarterEveryDay"
     },
     {
       "id": "12",
@@ -110,7 +117,68 @@
       "channelName": "Talks at Google",
       "title": "The Chase | Funny Clip | Johnny English Reborn | Mr Bean Official",
       "link": "https://www.youtube.com/embed/Ua3wlssr6rw?si=oMOEOnlZZ1vMEGUB",
-      "imgUrl": "https://starnewsrus.com/wp-content/uploads/2022/12/img_6388c20fa0a52.jpg"
+      "imgUrl": "https://starnewsrus.com/wp-content/uploads/2022/12/img_6388c20fa0a52.jpg",
+      "comment": "Talks at Google"
+    },
+    {
+      "id": "310d",
+      "post": {
+        "post": "",
+        "comment": "Hello world"
+      }
+    },
+    {
+      "id": "ad46",
+      "post": {
+        "post": "",
+        "comment": "salom hammaga"
+      }
+    },
+    {
+      "id": "9c04",
+      "post": {
+        "post": "",
+        "comment": "salom hammaga",
+        "": "salom hammagaasdsadsa"
+      }
+    },
+    {
+      "id": "b927",
+      "post": {
+        "comment": "asdsadasdasd"
+      }
+    },
+    {
+      "id": "567e",
+      "post": {
+        "comment": "asdsadasdasd"
+      }
+    },
+    {
+      "id": "b630",
+      "post": {
+        "comment": "asdsadasdasd"
+      }
+    },
+    {
+      "id": "f6fb",
+      "post": {
+        "comment": "asdsadasdasd"
+      }
+    },
+    {
+      "id": "6d88",
+      "post": {
+        "post": "",
+        "comment": "asdasdasdsad"
+      }
+    },
+    {
+      "id": "ed4e",
+      "post": {
+        "post": "",
+        "comment": "sdfsdf"
+      }
     }
   ]
 }

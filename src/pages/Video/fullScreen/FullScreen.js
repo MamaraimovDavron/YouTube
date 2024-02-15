@@ -1,11 +1,10 @@
 import { React, useState, useEffect } from "react";
 import styled from "styled-components";
-// import Video from "../../Video/index";
-// import { getLinks } from "../../../api";
 import ReactPlayer from "react-player";
-import { getLikes, getLinks } from "../../../api";
+import { getInputValue, getLinks } from "../../../api";
 import { AiFillLike } from "react-icons/ai";
 import { AiFillDislike } from "react-icons/ai";
+import axios from "axios";
 
 const Box = styled.div`
   width: 100%;
@@ -14,15 +13,12 @@ const Box = styled.div`
   flex-direction: column;
   overflow: hidden;
   .details {
-    /* height: calc(100%-88vh); */
-    /* margin-top: 10px; */
     height: 12vh;
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 10px;
     padding: 20px 10px;
-    border: 1px solid;
     h3 {
       font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
         "Lucida Sans", Arial, sans-serif;
@@ -136,13 +132,18 @@ const Box = styled.div`
       object-fit: cover;
       border-radius: 50%;
     }
-    input {
+    form {
       width: 60%;
-      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-        "Lucida Sans", Arial, sans-serif;
-      border: none;
-      outline: none;
-      border-bottom: 1px solid gray;
+      height: 100%;
+      input {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid gray;
+        width: 100%;
+        padding: 10px 0;
+      }
     }
   }
 `;
@@ -151,9 +152,22 @@ const FullScreen = () => {
   const [like, setLike] = useState([]);
   const [dislike, setDislike] = useState([]);
 
-  console.log(like, "like");
-  console.log(dislike, "dislike");
-  // const [like, setLike] = useState({});
+  const [comment, setComment] = useState([]);
+  const [post, setPost] = useState({
+    post: "",
+  });
+
+  const handleInput = (event) => {
+    setPost({ ...post, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .post("http://localhost:8000/posts/post/", { post })
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+  };
 
   const dislikeIncrement = () => {
     setDislike(dislike + 1);
@@ -168,15 +182,25 @@ const FullScreen = () => {
       const data = await getLinks();
       setLike(data[0].like);
       setDislike(data[0].dislike);
+      // console.log(setComment(data[0]), "setComment");
+      // setComment(data);
     };
     getAllLinks();
+  }, []);
+
+  useEffect(() => {
+    const getAllComments = async () => {
+      const data = await getInputValue();
+      setComment(data);
+      console.log(data, "comment");
+    };
+    getAllComments();
   }, []);
 
   return (
     <Box>
       <ReactPlayer
         url="https://www.youtube.com/watch?v=uMQnn8xU7qs"
-        // url="https://www.youtube.com/watch?v=uMQnn8xU7qs"
         width="100%"
         height="100%"
         playing
@@ -196,21 +220,6 @@ const FullScreen = () => {
 
           <button className="subscribe">Subscribe</button>
 
-          {/* {links?.map((item, index) => {
-            return (
-              <div className="likes" key={index}>
-                <button className="like">
-                  <AiFillLike className="icon" />
-                  <p>{item.like}</p>
-                </button>
-                <button className="dislike">
-                  <AiFillDislike className="icon" />
-                  <p>{item.dislike}</p>
-                </button>
-              </div>
-            );
-          })}  */}
-
           <div className="likes">
             <button className="like">
               <AiFillLike className="icon" onClick={likeIncrement} />
@@ -229,7 +238,14 @@ const FullScreen = () => {
           src="https://www.kino-teatr.ru/news/27698/245954.jpg"
           alt="pinterest"
         />
-        <input type="text" placeholder="Send Comment" />
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Send Comment"
+            onChange={handleInput}
+            name="comment"
+          />
+        </form>
       </div>
     </Box>
   );

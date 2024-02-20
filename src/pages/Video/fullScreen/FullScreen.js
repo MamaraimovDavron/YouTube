@@ -8,7 +8,7 @@ import axios from "axios";
 
 const Box = styled.div`
   width: 100%;
-  height: 90vh;
+  /* height: 90vh; */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -84,6 +84,7 @@ const Box = styled.div`
           border-radius: 16px;
           padding: 8px 16px;
           gap: 5px;
+
           cursor: pointer;
           .icon {
             font-size: 20px;
@@ -135,14 +136,48 @@ const Box = styled.div`
     form {
       width: 60%;
       height: 100%;
-      input {
+      .inputBox {
+        display: flex;
+        input {
+          font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+            "Lucida Sans", Arial, sans-serif;
+          border: none;
+          outline: none;
+          border-bottom: 1px solid gray;
+          width: 100%;
+          padding: 10px 0;
+        }
+
+        button {
+          font-size: 13px;
+          font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+            "Lucida Sans", Arial, sans-serif;
+          border: none;
+          outline: none;
+          background-color: white;
+          cursor: pointer;
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        margin: 0;
+        padding: 0;
         font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
           "Lucida Sans", Arial, sans-serif;
-        border: none;
-        outline: none;
-        border-bottom: 1px solid gray;
-        width: 100%;
-        padding: 10px 0;
+
+        li {
+          list-style-type: none;
+          padding: 10px 0px;
+          font-style: italic;
+          font-size: 14px;
+        }
+
+        li:hover {
+          background-color: gray;
+        }
       }
     }
   }
@@ -150,40 +185,42 @@ const Box = styled.div`
 
 const FullScreen = () => {
   const [like, setLike] = useState([]);
-  const [dislike, setDislike] = useState([]);
+  const [isLike, setIsLike] = useState(false);
 
+  const onLikeButtonClick = () => {
+    setLike(like + (isLike ? -1 : 1));
+    setIsLike(!isLike);
+  };
+
+  const [post, setPost] = useState({});
   const [comment, setComment] = useState([]);
-  const [post, setPost] = useState({
-    post: "",
-  });
 
   const handleInput = (event) => {
-    setPost({ ...post, [event.target.name]: event.target.value });
+    setPost({
+      like: "",
+      dislike: "",
+      channelName: "",
+      title: "",
+      link: "",
+      imgUrl: "",
+      comment: "",
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     axios
-      .post("http://localhost:8000/posts/post/", { post })
+      .post("http://localhost:8000/posts/", { ...post })
       .then((response) => console.log(response))
       .catch((error) => console.log(error));
-  };
-
-  const dislikeIncrement = () => {
-    setDislike(dislike + 1);
-  };
-
-  const likeIncrement = () => {
-    setLike(like + 1);
   };
 
   useEffect(() => {
     const getAllLinks = async () => {
       const data = await getLinks();
       setLike(data[0].like);
-      setDislike(data[0].dislike);
-      // console.log(setComment(data[0]), "setComment");
-      // setComment(data);
     };
     getAllLinks();
   }, []);
@@ -192,7 +229,6 @@ const FullScreen = () => {
     const getAllComments = async () => {
       const data = await getInputValue();
       setComment(data);
-      console.log(data, "comment");
     };
     getAllComments();
   }, []);
@@ -202,7 +238,7 @@ const FullScreen = () => {
       <ReactPlayer
         url="https://www.youtube.com/watch?v=uMQnn8xU7qs"
         width="100%"
-        height="100%"
+        height="70vh"
         playing
       />
 
@@ -221,13 +257,13 @@ const FullScreen = () => {
           <button className="subscribe">Subscribe</button>
 
           <div className="likes">
-            <button className="like">
-              <AiFillLike className="icon" onClick={likeIncrement} />
-              <p>{like}</p>
+            <button className="like" onClick={onLikeButtonClick}>
+              <AiFillLike className="icon" />
             </button>
-            <button className="dislike">
-              <AiFillDislike className="icon" onClick={dislikeIncrement} />
-              <p>{dislike}</p>
+            <p style={{ fontFamily: "Arial" }}>{like}</p>
+            <button className="dislike" onClick={onLikeButtonClick}>
+              <AiFillDislike className="icon" />
+              <p></p>
             </button>
           </div>
         </div>
@@ -239,13 +275,26 @@ const FullScreen = () => {
           alt="pinterest"
         />
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Send Comment"
-            onChange={handleInput}
-            name="comment"
-          />
+          <div className="inputBox">
+            <input
+              type="text"
+              placeholder="Send Comment"
+              onChange={handleInput}
+              name="comment"
+            ></input>
+            <button>Send</button>
+          </div>
+
+          <ul>
+            {comment.map((item, index) => {
+              return <li key={index}>{item.comment}</li>;
+            })}
+          </ul>
+          {/* {comment.map((item, index) => {
+            return <input type="text" value={item.comment} />;
+          })} */}
         </form>
+        <div></div>
       </div>
     </Box>
   );

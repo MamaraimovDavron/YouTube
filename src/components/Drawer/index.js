@@ -57,15 +57,14 @@ export default function ResponsiveDrawer(props: Props) {
   // api
   const [links, setLinks] = useState([]);
 
+  const getAllLinks = async () => {
+    const data = await getLinks();
+    setLinks(data);
+  };
+
   useEffect(() => {
-    const getAllLinks = async () => {
-      const data = await getLinks();
-      setLinks(data);
-    };
     getAllLinks();
   }, []);
-
-  console.log(links, "links");
 
   // api
   const { window } = props;
@@ -139,16 +138,19 @@ export default function ResponsiveDrawer(props: Props) {
       <List>
         {links?.map((item, index) => (
           <ListItem key={index} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
-                <Img sx={{ width: "40" }} src={item.imgUrl} alt="" />
-              </ListItemIcon>
-              <ListItemText
-                primary={item.channelName}
-                sx={{ fontSize: "5px" }}
-              />
-            </ListItemButton>
+            {item.subscribe ? (
+              <ListItemButton>
+                <ListItemIcon>
+                  <Img sx={{ width: "40" }} src={item.imgUrl} alt="" />
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.channelName}
+                  sx={{ fontSize: "5px" }}
+                />
+              </ListItemButton>
+            ) : (
+              ""
+            )}
           </ListItem>
         ))}
       </List>

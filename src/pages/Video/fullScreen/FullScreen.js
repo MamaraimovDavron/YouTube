@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
-import { getInputValue, getLinks } from "../../../api";
+import { getInputValue, getLikes } from "../../../api";
 import { AiFillLike } from "react-icons/ai";
 import { AiFillDislike } from "react-icons/ai";
 import axios from "axios";
@@ -188,18 +188,19 @@ const FullScreen = () => {
   const inputValue = useRef("");
   const [like, setLike] = useState([]);
   const [isLike, setIsLike] = useState(false);
+  const [post, setPost] = useState({});
+
+  console.log(like, "like");
+
+  // const putLike = async () => {
+  //   await putLikes(like, { ...like, like: true });
+  // };
 
   const onLikeButtonClick = () => {
     setLike(like + (isLike ? -1 : 1));
     setIsLike(!isLike);
-
-    axios
-      .put("http://localhost:8000/posts/3", { like })
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
   };
 
-  const [post, setPost] = useState({});
   const [comment, setComment] = useState([]);
 
   const handleInput = (event) => {
@@ -215,12 +216,19 @@ const FullScreen = () => {
     });
   };
 
+  // const getAllLinks = async () => {
+  //   const data = await getLinks();
+  //   setLike(data[0].like);
+  // };
+
+  const getLike = async () => {
+    const data = await getLikes();
+    setLike(data[0].like);
+  };
+
   useEffect(() => {
-    const getAllLinks = async () => {
-      const data = await getLinks();
-      setLike(data[0].like);
-    };
-    getAllLinks();
+    // getAllLinks();
+    getLike();
   }, []);
 
   const getAllComments = async () => {

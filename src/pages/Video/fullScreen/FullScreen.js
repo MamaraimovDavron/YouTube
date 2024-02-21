@@ -5,6 +5,7 @@ import { getInputValue, getLinks } from "../../../api";
 import { AiFillLike } from "react-icons/ai";
 import { AiFillDislike } from "react-icons/ai";
 import axios from "axios";
+import { useRef } from "react";
 
 const Box = styled.div`
   width: 100%;
@@ -184,12 +185,18 @@ const Box = styled.div`
 `;
 
 const FullScreen = () => {
+  const inputValue = useRef("");
   const [like, setLike] = useState([]);
   const [isLike, setIsLike] = useState(false);
 
   const onLikeButtonClick = () => {
     setLike(like + (isLike ? -1 : 1));
     setIsLike(!isLike);
+
+    axios
+      .put("http://localhost:8000/posts/3", { like })
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
   };
 
   const [post, setPost] = useState({});
@@ -197,24 +204,15 @@ const FullScreen = () => {
 
   const handleInput = (event) => {
     setPost({
-      like: "",
-      dislike: "",
-      channelName: "",
-      title: "",
-      link: "",
-      imgUrl: "",
-      comment: "",
+      like: "15",
+      dislike: "55",
+      channelName: "Channel Name",
+      title: "Title",
+      link: "https://www.youtube.com/embed/Ua3wlssr6rw?si=oMOEOnlZZ1vMEGUB",
+      imgUrl:
+        "https://starnewsrus.com/wp-content/uploads/2022/12/img_6388c20fa0a52.jpg",
       [event.target.name]: event.target.value,
     });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    axios
-      .post("http://localhost:8000/posts/", { ...post })
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
   };
 
   useEffect(() => {
@@ -225,11 +223,24 @@ const FullScreen = () => {
     getAllLinks();
   }, []);
 
+  const getAllComments = async () => {
+    const data = await getInputValue();
+    setComment(data);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    axios
+      .post("http://localhost:8000/posts/", { ...post })
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+
+    inputValue.current.value = "";
+    getAllComments();
+  };
+
   useEffect(() => {
-    const getAllComments = async () => {
-      const data = await getInputValue();
-      setComment(data);
-    };
     getAllComments();
   }, []);
 
@@ -281,7 +292,8 @@ const FullScreen = () => {
               placeholder="Send Comment"
               onChange={handleInput}
               name="comment"
-            ></input>
+              ref={inputValue}
+            />
             <button>Send</button>
           </div>
 

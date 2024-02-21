@@ -1,14 +1,14 @@
 {
   "posts": [
     {
-      "id": "1",
-      "like": 10,
+      "id": 1,
+      "like": 30,
       "dislike": 30,
-      "channelName": "The King of Random",
-      "title": "JavaScript : How to prevent The play() request was interrupted by a call to pause() error?",
-      "link": "https://www.youtube.com/embed/p_cqR1pwggQ?si=-fUo-oP5I-e7slkg",
-      "imgUrl": "https://cs5.livemaster.ru/storage/60/90/020b6db048f326340d1f4d53630j--sumki-i-aksessuary-muzhskoj-kozhanyj-koshelek-volk.jpg",
-      "comment": "The King of Random"
+      "channelName": "National Geographic",
+      "title": "Abituriyentlar Universitetga Kirishda Bu Xatolarni Aslo Qilmang! | 5 Maslahat | MARIFAT JAMAL",
+      "link": "https://www.youtube.com/embed/AGvINkfLq_0?si=D5s0TqQBYBnKCzIY",
+      "imgUrl": "https://www.kino-teatr.ru/news/27698/245954.jpg",
+      "comment": "National Geographic"
     },
     {
       "id": "2",
@@ -21,14 +21,8 @@
       "comment": "National Geographic"
     },
     {
-      "id": "3",
-      "like": 10,
-      "dislike": 30,
-      "channelName": "Carsh Course",
-      "title": "10 ISLOM KARIMOV QANDAY SHAXS EDI? — Lolazor podcast",
-      "link": "https://www.youtube.com/embed/oCWeeC-qK9A?si=xpw8F4J_bqDrT4Qt",
-      "imgUrl": "https://i.ytimg.com/vi/JF6_R2TevqY/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgSSgzMA8=&amp;rs=AOn4CLDuMqLOzRwpG-z7csRGRn0aKwgM3w",
-      "comment": "Carsh Course"
+      "like": 31,
+      "id": "3"
     },
     {
       "id": "4",
@@ -119,16 +113,6 @@
       "link": "https://www.youtube.com/embed/Ua3wlssr6rw?si=oMOEOnlZZ1vMEGUB",
       "imgUrl": "https://starnewsrus.com/wp-content/uploads/2022/12/img_6388c20fa0a52.jpg",
       "comment": "Talks at Google"
-    },
-    {
-      "id": "0b27",
-      "like": "",
-      "dislike": "",
-      "channelName": "",
-      "title": "",
-      "link": "",
-      "imgUrl": "",
-      "comment": "Hello world"
     }
   ]
 }

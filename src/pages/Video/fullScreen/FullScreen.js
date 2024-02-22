@@ -1,7 +1,13 @@
 import { React, useState, useEffect } from "react";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
-import { getInputValue, getLikes, getLinks } from "../../../api";
+import {
+  getInputValue,
+  getLikes,
+  getLinks,
+  getSubscribers,
+  putLikes,
+} from "../../../api";
 import { AiFillLike } from "react-icons/ai";
 import { AiFillDislike } from "react-icons/ai";
 import axios from "axios";
@@ -185,29 +191,50 @@ const Box = styled.div`
   }
 `;
 
-const FullScreen = ({ link, title }) => {
+const FullScreen = () => {
   const { id } = useParams();
 
   const inputValue = useRef("");
-  const [like, setLike] = useState([]);
+
+  const [like, setLike] = useState({});
   const [isLike, setIsLike] = useState(false);
   const [post, setPost] = useState({});
 
-  console.log(like, "like");
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/posts/${id}`)
+      .then((res) => console.log(res.data));
+  }, []);
 
   const [links, setLinks] = useState([]);
+  const [state, setState] = useState({
+    id: "",
+    like: "",
+    dislike: "",
+    channelName: "",
+    subscribe: false,
+    title: "",
+    link: "",
+    imgUrl: "",
+    comment: "",
+    subscribers: "",
+  });
+
+  // const handleValue = (e) => {
+  //   setState({ ...state, [e.target.name]: e.target.value });
+  // };
+
+  const clickToSubscribe = () => {
+    axios
+      .put(`http://localhost:8000/posts/${id}`, { ...state })
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  };
 
   const getAllLinks = async () => {
     const data = await getLinks();
     setLinks(data);
   };
-
-  useEffect(() => {
-    getAllLinks();
-  }, []);
-  // const putLike = async () => {
-  //   await putLikes(like, { ...like, like: true });
-  // };
 
   const onLikeButtonClick = () => {
     setLike(like + (isLike ? -1 : 1));
@@ -218,8 +245,8 @@ const FullScreen = ({ link, title }) => {
 
   const handleInput = (event) => {
     setPost({
-      like: "15",
-      dislike: "55",
+      like: 15,
+      dislike: 55,
       channelName: "Channel Name",
       title: "Title",
       link: "https://www.youtube.com/embed/Ua3wlssr6rw?si=oMOEOnlZZ1vMEGUB",
@@ -227,26 +254,6 @@ const FullScreen = ({ link, title }) => {
         "https://starnewsrus.com/wp-content/uploads/2022/12/img_6388c20fa0a52.jpg",
       [event.target.name]: event.target.value,
     });
-  };
-
-  // const getAllLinks = async () => {
-  //   const data = await getLinks();
-  //   setLike(data[0].like);
-  // };
-
-  const getLike = async () => {
-    const data = await getLikes();
-    setLike(data.like);
-  };
-
-  useEffect(() => {
-    // getAllLinks();
-    getLike();
-  }, []);
-
-  const getAllComments = async () => {
-    const data = await getInputValue();
-    setComment(data);
   };
 
   const handleSubmit = (event) => {
@@ -261,8 +268,25 @@ const FullScreen = ({ link, title }) => {
     getAllComments();
   };
 
+  // const getAllLinks = async () => {
+  //   const data = await getLinks();
+  //   setLike(data[0].like);
+  // };
+
+  const getLike = async () => {
+    const data = await getLikes();
+    setLike(data.like);
+  };
+
+  const getAllComments = async () => {
+    const data = await getInputValue();
+    setComment(data);
+  };
+
   useEffect(() => {
+    getAllLinks();
     getAllComments();
+    getLike();
   }, []);
 
   return (
@@ -272,7 +296,6 @@ const FullScreen = ({ link, title }) => {
           return (
             <div key={index}>
               <ReactPlayer url={item.link} width="100%" height="70vh" />
-
               <div className="details">
                 <h3>{item.title}</h3>
                 <div className="others">
@@ -282,7 +305,9 @@ const FullScreen = ({ link, title }) => {
                     <h6> {item.subscribers} подписчиков</h6>
                   </span>
 
-                  <button className="subscribe">Subscribe</button>
+                  <button className="subscribe" onClick={clickToSubscribe}>
+                    Subscribe
+                  </button>
 
                   <div className="likes">
                     <button className="like" onClick={onLikeButtonClick}>

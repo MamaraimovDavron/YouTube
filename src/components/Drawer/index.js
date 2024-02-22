@@ -1,4 +1,3 @@
-// import * as React from "react";
 import { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -20,7 +19,10 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import TextField from "@mui/material/TextField";
 import Video from "../../pages/Video";
 import { getLinks } from "../../api/index";
+import Modal from "../../pages/Modal";
 import styled from "styled-components";
+import { Link, useParams } from "react-router-dom";
+import FullScreen from "../../pages/Video/fullScreen/FullScreen";
 
 const Img = styled.img`
   width: 35px;
@@ -29,14 +31,10 @@ const Img = styled.img`
 `;
 
 const Container = styled.div`
-  /* width: 100%; */
-  /* height: 88vh; */
   display: grid;
   grid-template-columns: auto auto auto auto;
   gap: 20px;
   .item {
-    /* height: 100%; */
-    /* width: 100%; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -66,6 +64,8 @@ export default function ResponsiveDrawer(props: Props) {
     getAllLinks();
   }, []);
 
+  const { id } = useParams();
+
   // api
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -84,6 +84,10 @@ export default function ResponsiveDrawer(props: Props) {
     if (!isClosing) {
       setMobileOpen(!mobileOpen);
     }
+  };
+
+  const myFunction = (body) => {
+    console.log(body);
   };
 
   const drawer = (
@@ -252,12 +256,37 @@ export default function ResponsiveDrawer(props: Props) {
       >
         <Toolbar />
 
+        {/* <Container>
+          {links?.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className="item"
+                onClick={() => {
+                  myFunction(item);
+                }}
+              >
+                <Video title={item.title} link={item.link} />
+              </div>
+            );
+          })}
+        </Container> */}
+
         <Container>
           {links?.map((item, index) => {
             return (
-              <div key={index} className="item">
-                <Video title={item.title} link={item.link} />
-              </div>
+              <Link to={`full/${item.id}`}>
+                <div
+                  key={index}
+                  className="item"
+                  onClick={() => {
+                    myFunction(item);
+                  }}
+                >
+                  <Video link={item.link} title={item.title} />
+                  {/* <FullScreen link={item.link} title={item.title} /> */}
+                </div>
+              </Link>
             );
           })}
         </Container>

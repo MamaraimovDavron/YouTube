@@ -1,11 +1,12 @@
 import { React, useState, useEffect } from "react";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
-import { getInputValue, getLikes } from "../../../api";
+import { getInputValue, getLikes, getLinks } from "../../../api";
 import { AiFillLike } from "react-icons/ai";
 import { AiFillDislike } from "react-icons/ai";
 import axios from "axios";
 import { useRef } from "react";
+import { useParams } from "react-router-dom";
 
 const Box = styled.div`
   width: 100%;
@@ -184,7 +185,9 @@ const Box = styled.div`
   }
 `;
 
-const FullScreen = () => {
+const FullScreen = ({ link, title }) => {
+  const { id } = useParams();
+
   const inputValue = useRef("");
   const [like, setLike] = useState([]);
   const [isLike, setIsLike] = useState(false);
@@ -192,6 +195,16 @@ const FullScreen = () => {
 
   console.log(like, "like");
 
+  const [links, setLinks] = useState([]);
+
+  const getAllLinks = async () => {
+    const data = await getLinks();
+    setLinks(data);
+  };
+
+  useEffect(() => {
+    getAllLinks();
+  }, []);
   // const putLike = async () => {
   //   await putLikes(like, { ...like, like: true });
   // };
@@ -223,7 +236,7 @@ const FullScreen = () => {
 
   const getLike = async () => {
     const data = await getLikes();
-    setLike(data[0].like);
+    setLike(data.like);
   };
 
   useEffect(() => {
@@ -254,70 +267,125 @@ const FullScreen = () => {
 
   return (
     <Box>
-      <ReactPlayer
-        url="https://www.youtube.com/watch?v=uMQnn8xU7qs"
-        width="100%"
-        height="70vh"
-        playing
-      />
+      {links?.map((item, index) => {
+        if (item.id === id) {
+          return (
+            <div key={index}>
+              <ReactPlayer url={item.link} width="100%" height="70vh" />
 
-      <div className="details">
-        <h3>B. R. I. Tlemcen. 3</h3>
-        <div className="others">
-          <img
-            src="https://avatars.mds.yandex.net/i?id=a33621d9ba6d427aef323af416295d92660daa30-8972446-images-thumbs&n=13"
-            alt=""
-          />
-          <span>
-            <h4>Juba Lotfi</h4>
-            <h6>4,92 тыс. подписчиков</h6>
-          </span>
+              <div className="details">
+                <h3>{item.title}</h3>
+                <div className="others">
+                  <img src={item.imgUrl} alt="" />
+                  <span>
+                    <h4>{item.channelName}</h4>
+                    <h6> {item.subscribers} подписчиков</h6>
+                  </span>
 
-          <button className="subscribe">Subscribe</button>
+                  <button className="subscribe">Subscribe</button>
 
-          <div className="likes">
-            <button className="like" onClick={onLikeButtonClick}>
-              <AiFillLike className="icon" />
-            </button>
-            <p style={{ fontFamily: "Arial" }}>{like}</p>
-            <button className="dislike" onClick={onLikeButtonClick}>
-              <AiFillDislike className="icon" />
-              <p></p>
-            </button>
-          </div>
-        </div>
-      </div>
+                  <div className="likes">
+                    <button className="like" onClick={onLikeButtonClick}>
+                      <AiFillLike className="icon" />
+                    </button>
+                    <p style={{ fontFamily: "Arial" }}>{item.like}</p>
+                    <button className="dislike" onClick={onLikeButtonClick}>
+                      <AiFillDislike className="icon" />
+                      <p></p>
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-      <div className="commentBox">
-        <img
-          src="https://www.kino-teatr.ru/news/27698/245954.jpg"
-          alt="pinterest"
-        />
-        <form onSubmit={handleSubmit}>
-          <div className="inputBox">
-            <input
-              type="text"
-              placeholder="Send Comment"
-              onChange={handleInput}
-              name="comment"
-              ref={inputValue}
-            />
-            <button>Send</button>
-          </div>
+              <div className="commentBox">
+                <img src={item.imgUrl} alt="pinterest" />
+                <form onSubmit={handleSubmit}>
+                  <div className="inputBox">
+                    <input
+                      type="text"
+                      placeholder="Send Comment"
+                      onChange={handleInput}
+                      name="comment"
+                      ref={inputValue}
+                    />
+                    <button>Send</button>
+                  </div>
 
-          <ul>
-            {comment.map((item, index) => {
-              return <li key={index}>{item.comment}</li>;
-            })}
-          </ul>
-          {/* {comment.map((item, index) => {
-            return <input type="text" value={item.comment} />;
-          })} */}
-        </form>
-        <div></div>
-      </div>
+                  <ul>
+                    {comment.map((item, index) => {
+                      return <li key={index}>{item.comment}</li>;
+                    })}
+                  </ul>
+                  {/* {comment.map((item, index) => {
+              return <input type="text" value={item.comment} />;
+            })} */}
+                </form>
+                <div></div>
+              </div>
+            </div>
+          );
+        }
+      })}
     </Box>
   );
 };
 
 export default FullScreen;
+
+// {links?.map((item, index) => {
+//   return (
+//     <div key={index}>
+//       <ReactPlayer url={item.link} width="100%" height="70vh" />
+
+//       <div className="details">
+//         <h3>{item.title}</h3>
+//         <div className="others">
+//           <img src={item.imgUrl} alt="" />
+//           <span>
+//             <h4>{item.channelName}</h4>
+//             <h6> {item.subscribers} подписчиков</h6>
+//           </span>
+
+//           <button className="subscribe">Subscribe</button>
+
+//           <div className="likes">
+//             <button className="like" onClick={onLikeButtonClick}>
+//               <AiFillLike className="icon" />
+//             </button>
+//             <p style={{ fontFamily: "Arial" }}>{item.like}</p>
+//             <button className="dislike" onClick={onLikeButtonClick}>
+//               <AiFillDislike className="icon" />
+//               <p></p>
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className="commentBox">
+//         <img src={item.imgUrl} alt="pinterest" />
+//         <form onSubmit={handleSubmit}>
+//           <div className="inputBox">
+//             <input
+//               type="text"
+//               placeholder="Send Comment"
+//               onChange={handleInput}
+//               name="comment"
+//               ref={inputValue}
+//             />
+//             <button>Send</button>
+//           </div>
+
+//           <ul>
+//             {comment.map((item, index) => {
+//               return <li key={index}>{item.comment}</li>;
+//             })}
+//           </ul>
+//           {/* {comment.map((item, index) => {
+//       return <input type="text" value={item.comment} />;
+//     })} */}
+//         </form>
+//         <div></div>
+//       </div>
+//     </div>
+//   );
+// })}

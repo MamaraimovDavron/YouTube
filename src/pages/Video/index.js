@@ -3,7 +3,7 @@ import React from "react";
 import "react-html5video/dist/styles.css";
 import styled from "styled-components";
 import ReactPlayer from "react-player/youtube";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Div = styled.div`
   display: flex;
@@ -38,21 +38,18 @@ const Div = styled.div`
 `;
 
 const Video = ({ link, title }) => {
-  const [state, setState] = useState(true);
+  // const [state, setState] = useState(true);
 
-  const handleState = () => {
-    setState(!state);
-  };
+  // const handleState = () => {
+  //   setState(!state);
+  // };
 
   return (
     <>
-      <Link to="/full" style={{ textDecoration: "none" }}>
-        <Div onClick={handleState}>
-          <ReactPlayer url={link} width="100%" height="100%" controls />
-          <div className={state ? "up-box-1" : "up-box-2"}></div>
-          <p>{title}</p>
-        </Div>
-      </Link>
+      <Div>
+        <ReactPlayer url={link} width="100%" height="100%" controls />
+        <p>{title}</p>
+      </Div>
     </>
   );
 };

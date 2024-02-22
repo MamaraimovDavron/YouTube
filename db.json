@@ -9,7 +9,8 @@
       "title": "Abituriyentlar Universitetga Kirishda Bu Xatolarni Aslo Qilmang! | 5 Maslahat | MARIFAT JAMAL",
       "link": "https://www.youtube.com/embed/AGvINkfLq_0?si=D5s0TqQBYBnKCzIY",
       "imgUrl": "https://www.kino-teatr.ru/news/27698/245954.jpg",
-      "comment": "National Geographic"
+      "comment": "National Geographic",
+      "subscribers": 1200000
     },
     {
       "id": "2",
@@ -20,7 +21,8 @@
       "title": "Abituriyentlar Universitetga Kirishda Bu Xatolarni Aslo Qilmang! | 5 Maslahat | MARIFAT JAMAL",
       "link": "https://www.youtube.com/embed/AGvINkfLq_0?si=D5s0TqQBYBnKCzIY",
       "imgUrl": "https://www.kino-teatr.ru/news/27698/245954.jpg",
-      "comment": "National Geographic"
+      "comment": "National Geographic",
+      "subscribers": 500000
     },
     {
       "id": "3",
@@ -31,7 +33,8 @@
       "title": "10 ISLOM KARIMOV QANDAY SHAXS EDI? — Lolazor podcast",
       "link": "https://www.youtube.com/embed/oCWeeC-qK9A?si=xpw8F4J_bqDrT4Qt",
       "imgUrl": "https://i.ytimg.com/vi/JF6_R2TevqY/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgSSgzMA8=&amp;rs=AOn4CLDuMqLOzRwpG-z7csRGRn0aKwgM3w",
-      "comment": "Carsh Course"
+      "comment": "Carsh Course",
+      "subscribers": 200400
     },
     {
       "id": "4",
@@ -42,7 +45,8 @@
       "title": "Ochiq muloqot: Maishiy texnikachilar va Otabek Bakirov bahsi",
       "link": "https://www.youtube.com/embed/tuyBe89eC2U?si=lB-ykNW65IQaqIB5",
       "imgUrl": "https://i.ytimg.com/vi/vcDy8Hg-X9w/maxresdefault.jpg",
-      "comment": "Ted-ed"
+      "comment": "Ted-ed",
+      "subscribers": 2200400
     },
     {
       "id": "5",
@@ -53,7 +57,8 @@
       "title": "Pirlar uchmaydi, muridlar uchiradi | Husayn Buxoriy",
       "link": "https://www.youtube.com/embed/OEYe16hCyOA?si=A1Dh_lMkwS_Gnj6T",
       "imgUrl": "https://i.pinimg.com/originals/62/b4/55/62b455c8589f38af8138d2d9b511b206.jpg",
-      "comment": "Alltimes10s"
+      "comment": "Alltimes10s",
+      "subscribers": 900400
     },
     {
       "id": "6",
@@ -64,18 +69,20 @@
       "title": "React-Router Hooks || Complete guide to useParams hook..",
       "link": "https://www.youtube.com/embed/vWgaNYDHNds?si=3VQUdTkEqr1MvS8B",
       "imgUrl": "https://i.ytimg.com/vi/vcDy8Hg-X9w/maxresdefault.jpg",
-      "comment": "SciShow"
+      "comment": "SciShow",
+      "subscribers": 10200400
     },
     {
       "id": "7",
       "like": 10,
       "dislike": 30,
       "channelName": "Veritasium",
-      "subscribe": true,
+      "subscribe": false,
       "title": "Pirlar uchmaydi, muridlar uchiradi | Husayn Buxoriy",
       "link": "https://www.youtube.com/embed/OEYe16hCyOA?si=A1Dh_lMkwS_Gnj6T",
       "imgUrl": "https://skillbox.ru/upload/setka_images/08433606092021_accf102caaa970ce65d217b9ae9a8e9a57caa67c.jpg",
-      "comment": "Veritasium"
+      "comment": "Veritasium",
+      "subscribers": 10400
     },
     {
       "id": "8",
@@ -86,7 +93,8 @@
       "title": "SHAXSIY HAYOT HAQIDA | XATOLARI KO'P BO'LGAN OTABEK MAHKAMOV BILAN SUHBAT ",
       "link": "https://www.youtube.com/embed/EbzDuSG1Lhw?si=IKD7SReNH2wo7NwL",
       "imgUrl": "https://navlib.ru/wp-content/uploads/2021/08/1030720282-scaled-e1629468084328.jpg",
-      "comment": "Khan Academy"
+      "comment": "Khan Academy",
+      "subscribers": 400123
     },
     {
       "id": "9",
@@ -97,7 +105,8 @@
       "title": "Gods,bow before me or die",
       "link": "https://www.youtube.com/embed/11FlsNc5tlc?si=00zZxWcLJHaLsg38",
       "imgUrl": "https://w.forfun.com/fetch/7a/7a3deed1582cab1ba30aed2353a4a240.jpeg",
-      "comment": "INSIDER"
+      "comment": "INSIDER",
+      "subscribers": 250400
     },
     {
       "id": "10",
@@ -108,18 +117,20 @@
       "title": "SHARĞUNDA KATTA KURASH BOSHLANDI 30.1.2024",
       "link": "https://www.youtube.com/embed/-r3MtjUerzY?si=L-TaWAgBlgnVjDlb",
       "imgUrl": "https://i.playground.ru/p/qTCdruWS707QCA4yR_TiSA.jpeg",
-      "comment": "Tom Scott"
+      "comment": "Tom Scott",
+      "subscribers": 200000
     },
     {
       "id": "11",
       "like": 10,
       "dislike": 30,
-      "subscribe": true,
+      "subscribe": false,
       "channelName": "SmarterEveryDay",
       "title": "Tibet Training | Funny Clip | Johnny English Reborn | Mr Bean Official",
       "link": "https://www.youtube.com/embed/7mT8El4mBVw?si=5HarSarp1F1bg0K9",
       "imgUrl": "https://prv0.lori-images.net/britanskaya-korotkosherstnaya-koshka-0029147248-preview.jpg",
-      "comment": "SmarterEveryDay"
+      "comment": "SmarterEveryDay",
+      "subscribers": 550400
     },
     {
       "id": "12",
@@ -130,7 +141,8 @@
       "title": "The Chase | Funny Clip | Johnny English Reborn | Mr Bean Official",
       "link": "https://www.youtube.com/embed/Ua3wlssr6rw?si=oMOEOnlZZ1vMEGUB",
       "imgUrl": "https://starnewsrus.com/wp-content/uploads/2022/12/img_6388c20fa0a52.jpg",
-      "comment": "Talks at Google"
+      "comment": "Talks at Google",
+      "subscribers": 8950400
     }
   ]
 }

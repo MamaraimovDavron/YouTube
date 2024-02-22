@@ -8,8 +8,8 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Drawer />} />
-        <Route path="/full" element={<FullScreen />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/full/:id" element={<FullScreen />} />
+        {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
       </Routes>
     </BrowserRouter>
   );

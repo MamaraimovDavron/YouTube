@@ -2,14 +2,18 @@ import { React, useState, useEffect } from "react";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
 import {
+  fetchPosts,
   getInputValue,
   getLikes,
   getLinks,
   getSubscribers,
   putLikes,
+  updatePost,
 } from "../../../api";
 import { AiFillLike } from "react-icons/ai";
+import { AiOutlineLike } from "react-icons/ai";
 import { AiFillDislike } from "react-icons/ai";
+import { AiOutlineDislike } from "react-icons/ai";
 import axios from "axios";
 import { useRef } from "react";
 import { useParams } from "react-router-dom";
@@ -97,6 +101,7 @@ const Box = styled.div`
           .icon {
             font-size: 20px;
           }
+
           p {
             margin: 0;
             padding: 0;
@@ -195,53 +200,96 @@ const FullScreen = () => {
   const { id } = useParams();
 
   const inputValue = useRef("");
+  const [comment, setComment] = useState([]);
+  const [isLike, setIsLike] = useState(true);
+  const [post, setPost] = useState([]);
+  const [posts, setPosts] = useState();
 
-  const [like, setLike] = useState({});
-  const [isLike, setIsLike] = useState(false);
-  const [post, setPost] = useState({});
+  // const [like, setLike] = useState([]);
+  // const [links, setLinks] = useState([]);
+
+  // console.log(links, "lim");
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/posts/${id}`)
-      .then((res) => console.log(res.data));
+    const getPosts = async () => {
+      const postData = await fetchPosts();
+      setPosts(postData);
+    };
+
+    getPosts();
   }, []);
 
-  const [links, setLinks] = useState([]);
-  const [state, setState] = useState({
-    id: "",
-    like: "",
-    dislike: "",
-    channelName: "",
-    subscribe: false,
-    title: "",
-    link: "",
-    imgUrl: "",
-    comment: "",
-    subscribers: "",
-  });
+  const handleUpdateLike = async (id) => {
+    let likeValue = posts[id].like;
+    console.log(likeValue);
 
-  // const handleValue = (e) => {
-  //   setState({ ...state, [e.target.name]: e.target.value });
+    const updatedPost = {
+      dislike: false,
+      subscribe: true,
+      channelName: "National Geographic",
+      title: "How to use Axios in React (API Tutorial + Post Feed Project)",
+      link: "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
+      imgUrl:
+        "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
+      comment: "How to use Axios in React 1709184198960",
+      subscribers: 150000,
+      like: likeValue + (isLike ? 1 : -1),
+    };
+
+    // console.log(id);
+    // const onLikeButtonClick = () => {
+    //   setLike(like + (isLike ? -1 : 1));
+    //   setIsLike(!isLike);
+    // };
+
+    const post = await updatePost(id, updatedPost);
+    // setIsLike(!isLike);
+
+    setPost(posts.map((p) => (p.id === id ? post : p)));
+  };
+
+  const handleUpdateDislike = async (id) => {
+    let likeValue = posts[id].like;
+    console.log(likeValue);
+
+    const updatedPost = {
+      dislike: false,
+      subscribe: true,
+      channelName: "National Geographic",
+      title: "How to use Axios in React (API Tutorial + Post Feed Project)",
+      link: "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
+      imgUrl:
+        "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
+      comment: "How to use Axios in React 1709184198960",
+      subscribers: 150000,
+      like: likeValue + (likeValue > likeValue && isLike ? -1 : 1),
+    };
+
+    // console.log(id);
+    // const onLikeButtonClick = () => {
+    //   setLike(like + (isLike ? -1 : 1));
+    //   setIsLike(!isLike);
+    // };
+
+    const post = await updatePost(id, updatedPost);
+    // setIsLike(!isLike);
+
+    setPost(posts.map((p) => (p.id === id ? post : p)));
+  };
+  // const getLike = async () => {
+  //   const data = await getLikes();
+  //   console.log(data, "myData");
   // };
 
-  const clickToSubscribe = () => {
-    axios
-      .put(`http://localhost:8000/posts/${id}`, { ...state })
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
-  };
+  // const getAllLinks = async () => {
+  //   const data = await getLinks();
+  //   setLinks(data);
+  // };
 
-  const getAllLinks = async () => {
-    const data = await getLinks();
-    setLinks(data);
-  };
-
-  const onLikeButtonClick = () => {
-    setLike(like + (isLike ? -1 : 1));
-    setIsLike(!isLike);
-  };
-
-  const [comment, setComment] = useState([]);
+  // const onLikeButtonClick = () => {
+  //   setLike(like + (isLike ? -1 : 1));
+  //   setIsLike(!isLike);
+  // };
 
   const handleInput = (event) => {
     setPost({
@@ -260,22 +308,12 @@ const FullScreen = () => {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8000/posts/", { ...post })
+      .post("http://localhost:3000/posts/", { ...post })
       .then((response) => console.log(response))
       .catch((error) => console.log(error));
 
     inputValue.current.value = "";
     getAllComments();
-  };
-
-  // const getAllLinks = async () => {
-  //   const data = await getLinks();
-  //   setLike(data[0].like);
-  // };
-
-  const getLike = async () => {
-    const data = await getLikes();
-    setLike(data.like);
   };
 
   const getAllComments = async () => {
@@ -284,14 +322,14 @@ const FullScreen = () => {
   };
 
   useEffect(() => {
-    getAllLinks();
+    // getAllLinks();
     getAllComments();
-    getLike();
+    // getLike();
   }, []);
 
   return (
     <Box>
-      {links?.map((item, index) => {
+      {/* {links?.map((item, index) => {
         if (item.id === id) {
           return (
             <div key={index}>
@@ -305,17 +343,46 @@ const FullScreen = () => {
                     <h6> {item.subscribers} подписчиков</h6>
                   </span>
 
-                  <button className="subscribe" onClick={clickToSubscribe}>
-                    Subscribe
-                  </button>
+                  <button className="subscribe">Subscribe</button>
 
                   <div className="likes">
-                    <button className="like" onClick={onLikeButtonClick}>
-                      <AiFillLike className="icon" />
+                    <button className="like" onClick={updateLike()}>
+                      {isLike ? (
+                        <AiFillLike
+                          className="icon"
+                          onClick={() => {
+                            setIsLike(!isLike);
+                            updateLike();
+                          }}
+                        />
+                      ) : (
+                        <AiOutlineLike
+                          className="icon"
+                          onClick={() => {
+                            setIsLike(!isLike);
+                            updateLike();
+                          }}
+                        />
+                      )}
                     </button>
-                    <p style={{ fontFamily: "Arial" }}>{item.like}</p>
-                    <button className="dislike" onClick={onLikeButtonClick}>
-                      <AiFillDislike className="icon" />
+
+                    <button className="dislike" onClick={updateLike()}>
+                      {isLike ? (
+                        <AiOutlineDislike
+                          className="icon"
+                          onClick={() => {
+                            setIsLike(!isLike);
+                          }}
+                        />
+                      ) : (
+                        <AiFillDislike
+                          className="icon"
+                          onClick={() => {
+                            setIsLike(!isLike);
+                            updateLike();
+                          }}
+                        />
+                      )}
                       <p></p>
                     </button>
                   </div>
@@ -341,9 +408,96 @@ const FullScreen = () => {
                       return <li key={index}>{item.comment}</li>;
                     })}
                   </ul>
-                  {/* {comment.map((item, index) => {
-              return <input type="text" value={item.comment} />;
-            })} */}
+                </form>
+                <div></div>
+              </div>
+            </div>
+          );
+        }
+      })} */}
+
+      {posts?.map((item) => {
+        if (item.id === id) {
+          return (
+            <div key={item.id}>
+              <ReactPlayer url={item.link} width="100%" height="70vh" />
+              <div className="details">
+                <h3>{item.title}</h3>
+                <div className="others">
+                  <img src={item.imgUrl} alt="" />
+                  <span>
+                    <h4>{item.channelName}</h4>
+                    <h6> {item.subscribers} подписчиков</h6>
+                  </span>
+
+                  <button className="subscribe">Subscribe</button>
+                  <div className="likes">
+                    <button className="like">
+                      {isLike ? (
+                        <AiFillLike
+                          className="icon"
+                          onClick={() => {
+                            handleUpdateLike(item.id);
+                            setIsLike(!isLike);
+                          }}
+                        />
+                      ) : (
+                        <AiOutlineLike
+                          className="icon"
+                          onClick={() => {
+                            handleUpdateLike(item.id);
+                            setIsLike(!isLike);
+                          }}
+                        />
+                      )}
+                    </button>
+
+                    <p style={{ fontFamily: "Arial" }}>
+                      {isLike ? item.like + 0 : item.like + 1}
+                    </p>
+
+                    <button className="dislike">
+                      {isLike ? (
+                        <AiOutlineDislike
+                          className="icon"
+                          onClick={() => {
+                            handleUpdateDislike(item.id);
+                            setIsLike(!isLike);
+                          }}
+                        />
+                      ) : (
+                        <AiFillDislike
+                          className="icon"
+                          onClick={() => {
+                            handleUpdateDislike(item.id);
+                            setIsLike(!isLike);
+                          }}
+                        />
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="commentBox">
+                <img src={item.imgUrl} alt="pinterest" />
+                <form onSubmit={handleSubmit}>
+                  <div className="inputBox">
+                    <input
+                      type="text"
+                      placeholder="Send Comment"
+                      onChange={handleInput}
+                      name="comment"
+                      ref={inputValue}
+                    />
+                    <button>Send</button>
+                  </div>
+
+                  <ul>
+                    {comment.map((item, index) => {
+                      return <li key={index}>{item.comment}</li>;
+                    })}
+                  </ul>
                 </form>
                 <div></div>
               </div>

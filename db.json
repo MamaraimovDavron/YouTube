@@ -1,33 +1,33 @@
 {
   "posts": [
     {
-      "id": "1",
-      "like": 100,
-      "dislike": 30,
-      "subscribe": false,
+      "dislike": false,
+      "subscribe": true,
       "channelName": "National Geographic",
-      "title": "Abituriyentlar Universitetga Kirishda Bu Xatolarni Aslo Qilmang! | 5 Maslahat | MARIFAT JAMAL",
-      "link": "https://www.youtube.com/embed/AGvINkfLq_0?si=D5s0TqQBYBnKCzIY",
-      "imgUrl": "https://www.kino-teatr.ru/news/27698/245954.jpg",
-      "comment": "National Geographic",
-      "subscribers": 1200000
+      "title": "How to use Axios in React (API Tutorial + Post Feed Project)",
+      "link": "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
+      "imgUrl": "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
+      "comment": "How to use Axios in React 1709184198960",
+      "subscribers": 150000,
+      "like": 125,
+      "id": "0"
     },
     {
-      "id": "2",
-      "like": 10,
-      "dislike": 30,
+      "id": "1",
+      "like": 954,
+      "dislike": true,
       "subscribe": true,
       "channelName": "National Geographic",
       "title": "Abituriyentlar Universitetga Kirishda Bu Xatolarni Aslo Qilmang! | 5 Maslahat | MARIFAT JAMAL",
-      "link": "https://www.youtube.com/embed/AGvINkfLq_0?si=D5s0TqQBYBnKCzIY",
+      "link": "https://www.youtube.com/embed/o1tf5iAkvHQ?si=By0AofF9o2Xp0VhY",
       "imgUrl": "https://www.kino-teatr.ru/news/27698/245954.jpg",
       "comment": "National Geographic",
       "subscribers": 500000
     },
     {
-      "id": "3",
-      "like": 10,
-      "dislike": 30,
+      "id": "2",
+      "like": 1154,
+      "dislike": true,
       "subscribe": false,
       "channelName": "Carsh Course",
       "title": "10 ISLOM KARIMOV QANDAY SHAXS EDI? — Lolazor podcast",
@@ -37,9 +37,9 @@
       "subscribers": 200400
     },
     {
-      "id": "4",
-      "like": 10,
-      "dislike": 30,
+      "id": "3",
+      "like": 1650,
+      "dislike": false,
       "channelName": "Ted-ed",
       "subscribe": true,
       "title": "Ochiq muloqot: Maishiy texnikachilar va Otabek Bakirov bahsi",
@@ -49,9 +49,9 @@
       "subscribers": 2200400
     },
     {
-      "id": "5",
-      "like": 10,
-      "dislike": 30,
+      "id": "4",
+      "like": 121,
+      "dislike": true,
       "channelName": "Alltimes10s",
       "subscribe": true,
       "title": "Pirlar uchmaydi, muridlar uchiradi | Husayn Buxoriy",
@@ -61,33 +61,33 @@
       "subscribers": 900400
     },
     {
+      "dislike": false,
+      "subscribe": true,
+      "channelName": "National Geographic",
+      "title": "How to use Axios in React (API Tutorial + Post Feed Project)",
+      "link": "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
+      "imgUrl": "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
+      "comment": "How to use Axios in React 1709184198960",
+      "subscribers": 150000,
+      "like": 1,
+      "id": "5"
+    },
+    {
       "id": "6",
-      "like": 10,
-      "dislike": 30,
-      "subscribe": false,
-      "channelName": "SciShow",
-      "title": "React-Router Hooks || Complete guide to useParams hook..",
-      "link": "https://www.youtube.com/embed/vWgaNYDHNds?si=3VQUdTkEqr1MvS8B",
-      "imgUrl": "https://i.ytimg.com/vi/vcDy8Hg-X9w/maxresdefault.jpg",
-      "comment": "SciShow",
-      "subscribers": 10200400
+      "like": 121,
+      "dislike": true,
+      "subscribe": true,
+      "channelName": "National Geographic",
+      "title": "Abituriyentlar Universitetga Kirishda Bu Xatolarni Aslo Qilmang! | 5 Maslahat | MARIFAT JAMAL",
+      "link": "https://www.youtube.com/embed/AGvINkfLq_0?si=D5s0TqQBYBnKCzIY",
+      "imgUrl": "https://www.kino-teatr.ru/news/27698/245954.jpg",
+      "comment": "National Geographic",
+      "subscribers": 500000
     },
     {
       "id": "7",
-      "like": 10,
-      "dislike": 30,
-      "channelName": "Veritasium",
-      "subscribe": false,
-      "title": "Pirlar uchmaydi, muridlar uchiradi | Husayn Buxoriy",
-      "link": "https://www.youtube.com/embed/OEYe16hCyOA?si=A1Dh_lMkwS_Gnj6T",
-      "imgUrl": "https://skillbox.ru/upload/setka_images/08433606092021_accf102caaa970ce65d217b9ae9a8e9a57caa67c.jpg",
-      "comment": "Veritasium",
-      "subscribers": 10400
-    },
-    {
-      "id": "8",
-      "like": 10,
-      "dislike": 30,
+      "like": 934,
+      "dislike": false,
       "subscribe": true,
       "channelName": "Khan Academy",
       "title": "SHAXSIY HAYOT HAQIDA | XATOLARI KO'P BO'LGAN OTABEK MAHKAMOV BILAN SUHBAT ",
@@ -97,21 +97,21 @@
       "subscribers": 400123
     },
     {
-      "id": "9",
-      "like": 10,
-      "dislike": 30,
-      "subscribe": false,
-      "channelName": "INSIDER",
-      "title": "Gods,bow before me or die",
-      "link": "https://www.youtube.com/embed/11FlsNc5tlc?si=00zZxWcLJHaLsg38",
-      "imgUrl": "https://w.forfun.com/fetch/7a/7a3deed1582cab1ba30aed2353a4a240.jpeg",
-      "comment": "INSIDER",
-      "subscribers": 250400
+      "like": 101,
+      "dislike": false,
+      "subscribe": true,
+      "channelName": "National Geographic",
+      "title": "How to use Axios in React (API Tutorial + Post Feed Project)",
+      "link": "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
+      "imgUrl": "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
+      "comment": "How to use Axios in React 1709121850426",
+      "subscribers": 150000,
+      "id": "8"
     },
     {
-      "id": "10",
-      "like": 10,
-      "dislike": 30,
+      "id": "9",
+      "like": 89232,
+      "dislike": false,
       "subscribe": false,
       "channelName": "Tom Scott",
       "title": "SHARĞUNDA KATTA KURASH BOSHLANDI 30.1.2024",
@@ -121,9 +121,9 @@
       "subscribers": 200000
     },
     {
-      "id": "11",
-      "like": 10,
-      "dislike": 30,
+      "id": "10",
+      "like": 132423423,
+      "dislike": false,
       "subscribe": false,
       "channelName": "SmarterEveryDay",
       "title": "Tibet Training | Funny Clip | Johnny English Reborn | Mr Bean Official",
@@ -133,9 +133,9 @@
       "subscribers": 550400
     },
     {
-      "id": "12",
-      "like": 10,
-      "dislike": 30,
+      "id": "11",
+      "like": 5555,
+      "dislike": true,
       "subscribe": false,
       "channelName": "Talks at Google",
       "title": "The Chase | Funny Clip | Johnny English Reborn | Mr Bean Official",
@@ -143,6 +143,68 @@
       "imgUrl": "https://starnewsrus.com/wp-content/uploads/2022/12/img_6388c20fa0a52.jpg",
       "comment": "Talks at Google",
       "subscribers": 8950400
+    }
+  ],
+  "likes": [
+    {
+      "ID": "1",
+      "value": 4564123,
+      "id": "eea4"
+    },
+    {
+      "ID": "2",
+      "value": 45123,
+      "id": "9e05"
+    },
+    {
+      "ID": "3",
+      "value": 512345,
+      "id": "285e"
+    },
+    {
+      "ID": "4",
+      "value": 34123,
+      "id": "2604"
+    },
+    {
+      "ID": "5",
+      "value": 112321,
+      "id": "12a7"
+    },
+    {
+      "ID": "6",
+      "value": 912300,
+      "id": "b013"
+    },
+    {
+      "ID": "7",
+      "value": 231545,
+      "id": "5f1b"
+    },
+    {
+      "ID": "8",
+      "value": 33454,
+      "id": "0b2f"
+    },
+    {
+      "ID": "9",
+      "value": 95645,
+      "id": "1bd1"
+    },
+    {
+      "ID": "10",
+      "value": 89744,
+      "id": "3935"
+    },
+    {
+      "ID": "11",
+      "value": 99874,
+      "id": "ba99"
+    },
+    {
+      "ID": "12",
+      "value": 70000,
+      "id": "f6ea"
     }
   ]
 }

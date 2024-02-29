@@ -57,6 +57,7 @@ export default function ResponsiveDrawer(props: Props) {
 
   const getAllLinks = async () => {
     const data = await getLinks();
+    console.log(data);
     setLinks(data);
   };
 

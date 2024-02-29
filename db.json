@@ -9,32 +9,32 @@
       "imgUrl": "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
       "comment": "How to use Axios in React 1709184198960",
       "subscribers": 150000,
-      "like": 125,
+      "like": 127,
       "id": "0"
     },
     {
-      "id": "1",
-      "like": 954,
-      "dislike": true,
+      "dislike": false,
       "subscribe": true,
       "channelName": "National Geographic",
-      "title": "Abituriyentlar Universitetga Kirishda Bu Xatolarni Aslo Qilmang! | 5 Maslahat | MARIFAT JAMAL",
-      "link": "https://www.youtube.com/embed/o1tf5iAkvHQ?si=By0AofF9o2Xp0VhY",
-      "imgUrl": "https://www.kino-teatr.ru/news/27698/245954.jpg",
-      "comment": "National Geographic",
-      "subscribers": 500000
+      "title": "How to use Axios in React (API Tutorial + Post Feed Project)",
+      "link": "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
+      "imgUrl": "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
+      "comment": "How to use Axios in React 1709184198960",
+      "subscribers": 150000,
+      "like": 957,
+      "id": "1"
     },
     {
-      "id": "2",
-      "like": 1154,
-      "dislike": true,
-      "subscribe": false,
-      "channelName": "Carsh Course",
-      "title": "10 ISLOM KARIMOV QANDAY SHAXS EDI? — Lolazor podcast",
-      "link": "https://www.youtube.com/embed/oCWeeC-qK9A?si=xpw8F4J_bqDrT4Qt",
-      "imgUrl": "https://i.ytimg.com/vi/JF6_R2TevqY/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgSSgzMA8=&amp;rs=AOn4CLDuMqLOzRwpG-z7csRGRn0aKwgM3w",
-      "comment": "Carsh Course",
-      "subscribers": 200400
+      "dislike": false,
+      "subscribe": true,
+      "channelName": "National Geographic",
+      "title": "How to use Axios in React (API Tutorial + Post Feed Project)",
+      "link": "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
+      "imgUrl": "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
+      "comment": "How to use Axios in React 1709184198960",
+      "subscribers": 150000,
+      "like": 1155,
+      "id": "2"
     },
     {
       "id": "3",
@@ -49,16 +49,16 @@
       "subscribers": 2200400
     },
     {
-      "id": "4",
-      "like": 121,
-      "dislike": true,
-      "channelName": "Alltimes10s",
+      "dislike": false,
       "subscribe": true,
-      "title": "Pirlar uchmaydi, muridlar uchiradi | Husayn Buxoriy",
-      "link": "https://www.youtube.com/embed/OEYe16hCyOA?si=A1Dh_lMkwS_Gnj6T",
-      "imgUrl": "https://i.pinimg.com/originals/62/b4/55/62b455c8589f38af8138d2d9b511b206.jpg",
-      "comment": "Alltimes10s",
-      "subscribers": 900400
+      "channelName": "National Geographic",
+      "title": "How to use Axios in React (API Tutorial + Post Feed Project)",
+      "link": "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
+      "imgUrl": "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
+      "comment": "How to use Axios in React 1709184198960",
+      "subscribers": 150000,
+      "like": 122,
+      "id": "4"
     },
     {
       "dislike": false,
@@ -69,20 +69,20 @@
       "imgUrl": "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
       "comment": "How to use Axios in React 1709184198960",
       "subscribers": 150000,
-      "like": 1,
+      "like": 2,
       "id": "5"
     },
     {
-      "id": "6",
-      "like": 121,
-      "dislike": true,
+      "dislike": false,
       "subscribe": true,
       "channelName": "National Geographic",
-      "title": "Abituriyentlar Universitetga Kirishda Bu Xatolarni Aslo Qilmang! | 5 Maslahat | MARIFAT JAMAL",
-      "link": "https://www.youtube.com/embed/AGvINkfLq_0?si=D5s0TqQBYBnKCzIY",
-      "imgUrl": "https://www.kino-teatr.ru/news/27698/245954.jpg",
-      "comment": "National Geographic",
-      "subscribers": 500000
+      "title": "How to use Axios in React (API Tutorial + Post Feed Project)",
+      "link": "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
+      "imgUrl": "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
+      "comment": "How to use Axios in React 1709184198960",
+      "subscribers": 150000,
+      "like": 122,
+      "id": "6"
     },
     {
       "id": "7",

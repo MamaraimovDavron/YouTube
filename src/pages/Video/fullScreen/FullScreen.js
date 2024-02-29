@@ -262,7 +262,7 @@ const FullScreen = () => {
         "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
       comment: "How to use Axios in React 1709184198960",
       subscribers: 150000,
-      like: likeValue + (likeValue > likeValue && isLike ? -1 : 1),
+      like: likeValue + (!isLike ? 1 : -1),
     };
 
     // console.log(id);

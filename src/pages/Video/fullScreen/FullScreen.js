@@ -17,6 +17,7 @@ import { AiOutlineDislike } from "react-icons/ai";
 import axios from "axios";
 import { useRef } from "react";
 import { useParams } from "react-router-dom";
+import Modal from "../../Modal";
 
 const Box = styled.div`
   width: 100%;
@@ -66,7 +67,7 @@ const Box = styled.div`
         }
       }
 
-      .subscribe {
+      .subscribe1 {
         border: none;
         padding: 8px 24px;
         border-radius: 16px;
@@ -76,10 +77,38 @@ const Box = styled.div`
         font-size: 15px;
         background-color: black;
         color: white;
-        &:hover {
-          background-color: #010;
+        border: 1px solid black;
+        cursor: pointer;
+        /* &:hover {
+          background-color: white;
+          color: black;
           cursor: pointer;
-        }
+          border: 1px solid black;
+        } */
+      }
+
+      .subscribe2 {
+        border: none;
+        padding: 8px 24px;
+        border-radius: 16px;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+        /* background-color: black; */
+        /* color: white; */
+        /* border: 1px solid black; */
+
+        background-color: white;
+        color: black;
+        cursor: pointer;
+        border: 1px solid black;
+        /* &:hover {
+          background-color: white;
+          color: black;
+          cursor: pointer;
+          border: 1px solid black;
+        } */
       }
 
       .likes {
@@ -197,13 +226,19 @@ const Box = styled.div`
 `;
 
 const FullScreen = () => {
-  const { id } = useParams();
+  const { ID } = useParams();
+
+  console.log(ID, "useParams");
 
   const inputValue = useRef("");
   const [comment, setComment] = useState([]);
-  const [isLike, setIsLike] = useState(true);
+  const [isLike, setIsLike] = useState();
   const [post, setPost] = useState([]);
   const [posts, setPosts] = useState();
+
+  console.log(posts, "posts");
+
+  const [state, setState] = useState(false);
 
   // const [like, setLike] = useState([]);
   // const [links, setLinks] = useState([]);
@@ -221,21 +256,29 @@ const FullScreen = () => {
 
   const handleUpdateLike = async (id) => {
     let likeValue = posts[id].like;
-    console.log(likeValue);
+    const dislike = posts[id].dislike;
+    const channelName = posts[id].channelName;
+    const title = posts[id].title;
+    const link = posts[id].link;
+    const imgUrl = posts[id].imgUrl;
+    const comment = posts[id].comment;
+    const subscribe = posts[id].subscribe;
+    const subscribers = posts[id].subscribers;
+    console.log(dislike);
 
     const updatedPost = {
-      dislike: false,
-      subscribe: true,
-      channelName: "National Geographic",
-      title: "How to use Axios in React (API Tutorial + Post Feed Project)",
-      link: "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
-      imgUrl:
-        "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
-      comment: "How to use Axios in React 1709184198960",
-      subscribers: 150000,
-      like: likeValue + (isLike ? 1 : -1),
+      dislike: dislike,
+      subscribe: subscribe,
+      channelName: channelName,
+      title: title,
+      link: link,
+      imgUrl: imgUrl,
+      comment: comment,
+      subscribers: subscribers,
+      like: likeValue + (isLike ? 1 : 0),
     };
 
+    console.log(updatedPost, "subscribers");
     // console.log(id);
     // const onLikeButtonClick = () => {
     //   setLike(like + (isLike ? -1 : 1));
@@ -245,24 +288,32 @@ const FullScreen = () => {
     const post = await updatePost(id, updatedPost);
     // setIsLike(!isLike);
 
-    setPost(posts.map((p) => (p.id === id ? post : p)));
+    setPosts(posts.map((p) => (p.id === id ? post : p)));
   };
 
   const handleUpdateDislike = async (id) => {
-    let likeValue = posts[id].like;
-    console.log(likeValue);
+    const like = posts[id].like;
+    const dislike = posts[id].dislike;
+    const channelName = posts[id].channelName;
+    const title = posts[id].title;
+    const link = posts[id].link;
+    const imgUrl = posts[id].imgUrl;
+    const comment = posts[id].comment;
+    const subscribe = posts[id].subscribe;
+    const subscribers = posts[id].subscribers;
+    console.log(dislike);
+    console.log(like);
 
     const updatedPost = {
-      dislike: false,
-      subscribe: true,
-      channelName: "National Geographic",
-      title: "How to use Axios in React (API Tutorial + Post Feed Project)",
-      link: "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
-      imgUrl:
-        "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
-      comment: "How to use Axios in React 1709184198960",
-      subscribers: 150000,
-      like: likeValue + (!isLike ? 1 : -1),
+      dislike: dislike,
+      subscribe: subscribe,
+      channelName: channelName,
+      title: title,
+      link: link,
+      imgUrl: imgUrl,
+      comment: comment,
+      subscribers: subscribers,
+      like: like + (isLike ? 0 : -1),
     };
 
     // console.log(id);
@@ -274,8 +325,38 @@ const FullScreen = () => {
     const post = await updatePost(id, updatedPost);
     // setIsLike(!isLike);
 
-    setPost(posts.map((p) => (p.id === id ? post : p)));
+    setPosts(posts.map((p) => (p.id === id ? post : p)));
   };
+
+  const handleUpdateSubscribe = async (id) => {
+    let like = posts[id].like;
+    const dislike = posts[id].dislike;
+    const channelName = posts[id].channelName;
+    const title = posts[id].title;
+    const link = posts[id].link;
+    const imgUrl = posts[id].imgUrl;
+    const comment = posts[id].comment;
+    const subscribe = posts[id].subscribe;
+    const subscribers = posts[id].subscribers;
+
+    const updatedPost = {
+      channelName: channelName,
+      title: title,
+      link: link,
+      imgUrl: imgUrl,
+      comment: comment,
+      subscribers: subscribers,
+      like: like,
+      dislike: dislike,
+      subscribe: !subscribe,
+    };
+
+    const post = await updatePost(id, updatedPost);
+    setPosts(posts.map((p) => (p.id === id ? post : p)));
+    setState(!state);
+    console.log("handleUpdateSubscribe");
+  };
+
   // const getLike = async () => {
   //   const data = await getLikes();
   //   console.log(data, "myData");
@@ -417,7 +498,7 @@ const FullScreen = () => {
       })} */}
 
       {posts?.map((item) => {
-        if (item.id === id) {
+        if (item.id === ID) {
           return (
             <div key={item.id}>
               <ReactPlayer url={item.link} width="100%" height="70vh" />
@@ -430,11 +511,18 @@ const FullScreen = () => {
                     <h6> {item.subscribers} подписчиков</h6>
                   </span>
 
-                  <button className="subscribe">Subscribe</button>
+                  <button
+                    className={state ? "subscribe1" : "subscribe2"}
+                    onClick={() => {
+                      handleUpdateSubscribe(item.id);
+                    }}
+                  >
+                    Subscribe{item.subscribe}
+                  </button>
                   <div className="likes">
                     <button className="like">
                       {isLike ? (
-                        <AiFillLike
+                        <AiOutlineLike
                           className="icon"
                           onClick={() => {
                             handleUpdateLike(item.id);
@@ -442,7 +530,7 @@ const FullScreen = () => {
                           }}
                         />
                       ) : (
-                        <AiOutlineLike
+                        <AiFillLike
                           className="icon"
                           onClick={() => {
                             handleUpdateLike(item.id);
@@ -452,13 +540,11 @@ const FullScreen = () => {
                       )}
                     </button>
 
-                    <p style={{ fontFamily: "Arial" }}>
-                      {isLike ? item.like + 0 : item.like + 1}
-                    </p>
+                    <p style={{ fontFamily: "Arial" }}>{item.like}</p>
 
                     <button className="dislike">
                       {isLike ? (
-                        <AiOutlineDislike
+                        <AiFillDislike
                           className="icon"
                           onClick={() => {
                             handleUpdateDislike(item.id);
@@ -466,7 +552,7 @@ const FullScreen = () => {
                           }}
                         />
                       ) : (
-                        <AiFillDislike
+                        <AiOutlineDislike
                           className="icon"
                           onClick={() => {
                             handleUpdateDislike(item.id);
@@ -476,6 +562,7 @@ const FullScreen = () => {
                       )}
                     </button>
                   </div>
+                  {state ? <Modal /> : ""}
                 </div>
               </div>
 

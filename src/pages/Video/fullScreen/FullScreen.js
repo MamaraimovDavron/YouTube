@@ -232,7 +232,7 @@ const FullScreen = () => {
 
   const inputValue = useRef("");
   const [comment, setComment] = useState([]);
-  const [isLike, setIsLike] = useState();
+  const [isLike, setIsLike] = useState(true);
   const [post, setPost] = useState([]);
   const [posts, setPosts] = useState();
 
@@ -255,7 +255,7 @@ const FullScreen = () => {
   }, []);
 
   const handleUpdateLike = async (id) => {
-    let likeValue = posts[id].like;
+    const like = posts[id].like;
     const dislike = posts[id].dislike;
     const channelName = posts[id].channelName;
     const title = posts[id].title;
@@ -275,7 +275,7 @@ const FullScreen = () => {
       imgUrl: imgUrl,
       comment: comment,
       subscribers: subscribers,
-      like: likeValue + (isLike ? 1 : 0),
+      like: like + (isLike ? 0 : 1),
     };
 
     console.log(updatedPost, "subscribers");
@@ -286,7 +286,7 @@ const FullScreen = () => {
     // };
 
     const post = await updatePost(id, updatedPost);
-    // setIsLike(!isLike);
+    setIsLike(!isLike);
 
     setPosts(posts.map((p) => (p.id === id ? post : p)));
   };

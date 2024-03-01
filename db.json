@@ -1,15 +1,15 @@
 {
   "posts": [
     {
+      "dislike": false,
+      "subscribe": true,
       "channelName": "National Geographic",
       "title": "How to use Axios in React (API Tutorial + Post Feed Project)",
       "link": "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
       "imgUrl": "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
       "comment": "How to use Axios in React 1709184198960",
       "subscribers": 150000,
-      "like": 164,
-      "dislike": false,
-      "subscribe": true,
+      "like": 163,
       "id": "0"
     },
     {
@@ -25,8 +25,6 @@
       "subscribers": 500000
     },
     {
-      "dislike": true,
-      "subscribe": false,
       "channelName": "Carsh Course",
       "title": "10 ISLOM KARIMOV QANDAY SHAXS EDI? — Lolazor podcast",
       "link": "https://www.youtube.com/embed/oCWeeC-qK9A?si=xpw8F4J_bqDrT4Qt",
@@ -34,6 +32,8 @@
       "comment": "Carsh Course",
       "subscribers": 200400,
       "like": 1155,
+      "dislike": true,
+      "subscribe": true,
       "id": "2"
     },
     {
@@ -49,46 +49,46 @@
       "subscribers": 2200400
     },
     {
-      "id": "4",
-      "like": 121,
-      "dislike": true,
       "channelName": "Alltimes10s",
-      "subscribe": false,
       "title": "Pirlar uchmaydi, muridlar uchiradi | Husayn Buxoriy",
       "link": "https://www.youtube.com/embed/OEYe16hCyOA?si=A1Dh_lMkwS_Gnj6T",
       "imgUrl": "https://i.pinimg.com/originals/62/b4/55/62b455c8589f38af8138d2d9b511b206.jpg",
       "comment": "Alltimes10s",
-      "subscribers": 900400
+      "subscribers": 900400,
+      "like": 121,
+      "dislike": true,
+      "subscribe": true,
+      "id": "4"
     },
     {
-      "like": 101,
-      "dislike": false,
-      "subscribe": true,
       "channelName": "National Geographic",
       "title": "How to use Axios in React (API Tutorial + Post Feed Project)",
       "link": "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
       "imgUrl": "https://stroy-podskazka.ru/images/article/orig/2023/03/kustarnik-s-sinimi-cvetami.jpg",
       "comment": "How to use Axios in React 1709121946935",
       "subscribers": 150000,
+      "like": 101,
+      "dislike": false,
+      "subscribe": true,
       "id": "5"
     },
     {
-      "id": "6",
-      "like": 121,
-      "dislike": true,
-      "subscribe": true,
       "channelName": "National Geographic",
       "title": "Abituriyentlar Universitetga Kirishda Bu Xatolarni Aslo Qilmang! | 5 Maslahat | MARIFAT JAMAL",
       "link": "https://www.youtube.com/embed/AGvINkfLq_0?si=D5s0TqQBYBnKCzIY",
       "imgUrl": "https://www.kino-teatr.ru/news/27698/245954.jpg",
       "comment": "National Geographic",
-      "subscribers": 500000
+      "subscribers": 500000,
+      "like": 121,
+      "dislike": true,
+      "subscribe": true,
+      "id": "6"
     },
     {
       "id": "7",
       "like": 934,
       "dislike": false,
-      "subscribe": true,
+      "subscribe": false,
       "channelName": "Khan Academy",
       "title": "SHAXSIY HAYOT HAQIDA | XATOLARI KO'P BO'LGAN OTABEK MAHKAMOV BILAN SUHBAT ",
       "link": "https://www.youtube.com/embed/EbzDuSG1Lhw?si=IKD7SReNH2wo7NwL",
@@ -99,7 +99,7 @@
     {
       "like": 101,
       "dislike": false,
-      "subscribe": true,
+      "subscribe": false,
       "channelName": "National Geographic",
       "title": "How to use Axios in React (API Tutorial + Post Feed Project)",
       "link": "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
@@ -109,28 +109,28 @@
       "id": "8"
     },
     {
-      "id": "9",
-      "like": 89232,
-      "dislike": false,
-      "subscribe": false,
       "channelName": "Tom Scott",
       "title": "SHARĞUNDA KATTA KURASH BOSHLANDI 30.1.2024",
       "link": "https://www.youtube.com/embed/-r3MtjUerzY?si=L-TaWAgBlgnVjDlb",
       "imgUrl": "https://i.playground.ru/p/qTCdruWS707QCA4yR_TiSA.jpeg",
       "comment": "Tom Scott",
-      "subscribers": 200000
+      "subscribers": 200000,
+      "like": 89232,
+      "dislike": false,
+      "subscribe": true,
+      "id": "9"
     },
     {
-      "id": "10",
-      "like": 132423423,
-      "dislike": false,
-      "subscribe": false,
       "channelName": "SmarterEveryDay",
       "title": "Tibet Training | Funny Clip | Johnny English Reborn | Mr Bean Official",
       "link": "https://www.youtube.com/embed/7mT8El4mBVw?si=5HarSarp1F1bg0K9",
       "imgUrl": "https://prv0.lori-images.net/britanskaya-korotkosherstnaya-koshka-0029147248-preview.jpg",
       "comment": "SmarterEveryDay",
-      "subscribers": 550400
+      "subscribers": 550400,
+      "like": 132423423,
+      "dislike": false,
+      "subscribe": true,
+      "id": "10"
     },
     {
       "channelName": "Talks at Google",
@@ -141,7 +141,7 @@
       "subscribers": 8950400,
       "like": 5555,
       "dislike": true,
-      "subscribe": true,
+      "subscribe": false,
       "id": "11"
     }
   ],

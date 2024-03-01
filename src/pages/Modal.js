@@ -15,6 +15,7 @@ const Box = styled.div`
     "Lucida Sans", Arial, sans-serif;
   position: absolute;
   bottom: 130px;
+
   div {
     width: 100%;
     font-size: 10px;

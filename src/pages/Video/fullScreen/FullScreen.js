@@ -19,6 +19,7 @@ import { useRef } from "react";
 import { useParams } from "react-router-dom";
 import Modal from "../../Modal";
 import ErrorBoundary from "../../../components/Drawer/ErrorBoundary/ErrorBoundary";
+import ErrorComment from "../../../components/Drawer/ErrorBoundary/ErrorComment";
 
 const Box = styled.div`
   width: 100%;
@@ -410,105 +411,106 @@ const FullScreen = () => {
   }, []);
 
   return (
-    <ErrorBoundary>
-      {/* <Box>
-        {posts?.map((item) => {
-          if (item.id === ID) {
-            return (
-              <div key={item.id}>
-                <ReactPlayer url={item.link} width="100%" height="70vh" />
-                <div className="details">
-                  <h3>{item.title}</h3>
-                  <div className="others">
-                    <img src={item.imgUrl} alt="" />
-                    <span>
-                      <h4>{item.channelName}</h4>
-                      <h6> {item.subscribers} подписчиков</h6>
-                    </span>
+    <Box>
+      {posts?.map((item) => {
+        if (item.id === ID) {
+          return (
+            <div key={item.id}>
+              <ErrorBoundary>
+                <ReactPlayer width="100%" height="70vh" />
+              </ErrorBoundary>
+              <div className="details">
+                <h3>{item.title}</h3>
+                <div className="others">
+                  <img src={item.imgUrl} alt="" />
+                  <span>
+                    <h4>{item.channelName}</h4>
+                    <h6> {item.subscribers} подписчиков</h6>
+                  </span>
 
-                    <button
-                      className={state ? "subscribe1" : "subscribe2"}
-                      onClick={() => {
-                        handleUpdateSubscribe(item.id);
-                      }}
-                    >
-                      Subscribe{item.subscribe}
+                  <button
+                    className={state ? "subscribe1" : "subscribe2"}
+                    onClick={() => {
+                      handleUpdateSubscribe(item.id);
+                    }}
+                  >
+                    Subscribe{item.subscribe}
+                  </button>
+                  <div className="likes">
+                    <button className="like">
+                      {isLike ? (
+                        <AiOutlineLike
+                          className="icon"
+                          onClick={() => {
+                            handleUpdateLike(item.id);
+                            setIsLike(!isLike);
+                          }}
+                        />
+                      ) : (
+                        <AiFillLike
+                          className="icon"
+                          onClick={() => {
+                            handleUpdateLike(item.id);
+                            setIsLike(!isLike);
+                          }}
+                        />
+                      )}
                     </button>
-                    <div className="likes">
-                      <button className="like">
-                        {isLike ? (
-                          <AiOutlineLike
-                            className="icon"
-                            onClick={() => {
-                              handleUpdateLike(item.id);
-                              setIsLike(!isLike);
-                            }}
-                          />
-                        ) : (
-                          <AiFillLike
-                            className="icon"
-                            onClick={() => {
-                              handleUpdateLike(item.id);
-                              setIsLike(!isLike);
-                            }}
-                          />
-                        )}
-                      </button>
 
-                      <p style={{ fontFamily: "Arial" }}>{item.like}</p>
+                    <p style={{ fontFamily: "Arial" }}>{item.like}</p>
 
-                      <button className="dislike">
-                        {isLike ? (
-                          <AiFillDislike
-                            className="icon"
-                            onClick={() => {
-                              handleUpdateDislike(item.id);
-                              setIsLike(!isLike);
-                            }}
-                          />
-                        ) : (
-                          <AiOutlineDislike
-                            className="icon"
-                            onClick={() => {
-                              handleUpdateDislike(item.id);
-                              setIsLike(!isLike);
-                            }}
-                          />
-                        )}
-                      </button>
-                    </div>
-                    {state ? <Modal /> : ""}
+                    <button className="dislike">
+                      {isLike ? (
+                        <AiFillDislike
+                          className="icon"
+                          onClick={() => {
+                            handleUpdateDislike(item.id);
+                            setIsLike(!isLike);
+                          }}
+                        />
+                      ) : (
+                        <AiOutlineDislike
+                          className="icon"
+                          onClick={() => {
+                            handleUpdateDislike(item.id);
+                            setIsLike(!isLike);
+                          }}
+                        />
+                      )}
+                    </button>
                   </div>
+                  {state ? <Modal /> : ""}
                 </div>
+              </div>
 
-                <div className="commentBox">
-                  <img src={item.imgUrl} alt="pinterest" />
-                  <form onSubmit={handleSubmit}>
-                    <div className="inputBox">
-                      <input
-                        type="text"
-                        placeholder="Send Comment"
-                        onChange={handleInput}
-                        name="comment"
-                        ref={inputValue}
-                      />
-                      <button>Send</button>
-                    </div>
-
+              <div className="commentBox">
+                <img src={item.imgUrl} alt="pinterest" />
+                <form onSubmit={handleSubmit}>
+                  <div className="inputBox">
+                    <input
+                      type="text"
+                      placeholder="Send Comment"
+                      onChange={handleInput}
+                      name="comment"
+                      ref={inputValue}
+                    />
+                    <button>Send</button>
+                  </div>
+                  <ErrorComment>
                     <ul>
                       {comment.map((item, index) => {
                         return <li key={index}>{item.comment}</li>;
                       })}
                     </ul>
-                  </form>
-                  <div></div>
-                </div>
+                  </ErrorComment>
+                </form>
+                <div></div>
               </div>
-            );
-          }
-        })}
-      </Box> */}
-    </ErrorBoundary>
+            </div>
+          );
+        }
+      })}
+    </Box>
   );
 };
 

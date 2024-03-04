@@ -4,7 +4,7 @@ import React, { Component } from "react";
 //   return <div></div>;
 // };
 
-class ErrorBoundary extends Component {
+class ErrorComment extends Component {
   constructor() {
     super();
     this.state = { error: false };
@@ -31,11 +31,11 @@ class ErrorBoundary extends Component {
             textAlign: "center",
           }}
         >
-          Your api is not working well!!!
+          Data from api is not connecting properly with your comment box !!!
         </p>
       );
-    else return <p style={{ color: "green" }}>Nothing</p>;
+    else return <p style={{ color: "green" }}>Everything is OK!</p>;
   }
 }
 
-export default ErrorBoundary;
+export default ErrorComment;

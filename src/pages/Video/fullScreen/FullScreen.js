@@ -18,6 +18,7 @@ import axios from "axios";
 import { useRef } from "react";
 import { useParams } from "react-router-dom";
 import Modal from "../../Modal";
+import ErrorBoundary from "../../../components/Drawer/ErrorBoundary/ErrorBoundary";
 
 const Box = styled.div`
   width: 100%;
@@ -409,190 +410,105 @@ const FullScreen = () => {
   }, []);
 
   return (
-    <Box>
-      {/* {links?.map((item, index) => {
-        if (item.id === id) {
-          return (
-            <div key={index}>
-              <ReactPlayer url={item.link} width="100%" height="70vh" />
-              <div className="details">
-                <h3>{item.title}</h3>
-                <div className="others">
-                  <img src={item.imgUrl} alt="" />
-                  <span>
-                    <h4>{item.channelName}</h4>
-                    <h6> {item.subscribers} подписчиков</h6>
-                  </span>
+    <ErrorBoundary>
+      {/* <Box>
+        {posts?.map((item) => {
+          if (item.id === ID) {
+            return (
+              <div key={item.id}>
+                <ReactPlayer url={item.link} width="100%" height="70vh" />
+                <div className="details">
+                  <h3>{item.title}</h3>
+                  <div className="others">
+                    <img src={item.imgUrl} alt="" />
+                    <span>
+                      <h4>{item.channelName}</h4>
+                      <h6> {item.subscribers} подписчиков</h6>
+                    </span>
 
-                  <button className="subscribe">Subscribe</button>
-
-                  <div className="likes">
-                    <button className="like" onClick={updateLike()}>
-                      {isLike ? (
-                        <AiFillLike
-                          className="icon"
-                          onClick={() => {
-                            setIsLike(!isLike);
-                            updateLike();
-                          }}
-                        />
-                      ) : (
-                        <AiOutlineLike
-                          className="icon"
-                          onClick={() => {
-                            setIsLike(!isLike);
-                            updateLike();
-                          }}
-                        />
-                      )}
+                    <button
+                      className={state ? "subscribe1" : "subscribe2"}
+                      onClick={() => {
+                        handleUpdateSubscribe(item.id);
+                      }}
+                    >
+                      Subscribe{item.subscribe}
                     </button>
+                    <div className="likes">
+                      <button className="like">
+                        {isLike ? (
+                          <AiOutlineLike
+                            className="icon"
+                            onClick={() => {
+                              handleUpdateLike(item.id);
+                              setIsLike(!isLike);
+                            }}
+                          />
+                        ) : (
+                          <AiFillLike
+                            className="icon"
+                            onClick={() => {
+                              handleUpdateLike(item.id);
+                              setIsLike(!isLike);
+                            }}
+                          />
+                        )}
+                      </button>
 
-                    <button className="dislike" onClick={updateLike()}>
-                      {isLike ? (
-                        <AiOutlineDislike
-                          className="icon"
-                          onClick={() => {
-                            setIsLike(!isLike);
-                          }}
-                        />
-                      ) : (
-                        <AiFillDislike
-                          className="icon"
-                          onClick={() => {
-                            setIsLike(!isLike);
-                            updateLike();
-                          }}
-                        />
-                      )}
-                      <p></p>
-                    </button>
+                      <p style={{ fontFamily: "Arial" }}>{item.like}</p>
+
+                      <button className="dislike">
+                        {isLike ? (
+                          <AiFillDislike
+                            className="icon"
+                            onClick={() => {
+                              handleUpdateDislike(item.id);
+                              setIsLike(!isLike);
+                            }}
+                          />
+                        ) : (
+                          <AiOutlineDislike
+                            className="icon"
+                            onClick={() => {
+                              handleUpdateDislike(item.id);
+                              setIsLike(!isLike);
+                            }}
+                          />
+                        )}
+                      </button>
+                    </div>
+                    {state ? <Modal /> : ""}
                   </div>
                 </div>
-              </div>
 
-              <div className="commentBox">
-                <img src={item.imgUrl} alt="pinterest" />
-                <form onSubmit={handleSubmit}>
-                  <div className="inputBox">
-                    <input
-                      type="text"
-                      placeholder="Send Comment"
-                      onChange={handleInput}
-                      name="comment"
-                      ref={inputValue}
-                    />
-                    <button>Send</button>
-                  </div>
+                <div className="commentBox">
+                  <img src={item.imgUrl} alt="pinterest" />
+                  <form onSubmit={handleSubmit}>
+                    <div className="inputBox">
+                      <input
+                        type="text"
+                        placeholder="Send Comment"
+                        onChange={handleInput}
+                        name="comment"
+                        ref={inputValue}
+                      />
+                      <button>Send</button>
+                    </div>
 
-                  <ul>
-                    {comment.map((item, index) => {
-                      return <li key={index}>{item.comment}</li>;
-                    })}
-                  </ul>
-                </form>
-                <div></div>
-              </div>
-            </div>
-          );
-        }
-      })} */}
-
-      {posts?.map((item) => {
-        if (item.id === ID) {
-          return (
-            <div key={item.id}>
-              <ReactPlayer url={item.link} width="100%" height="70vh" />
-              <div className="details">
-                <h3>{item.title}</h3>
-                <div className="others">
-                  <img src={item.imgUrl} alt="" />
-                  <span>
-                    <h4>{item.channelName}</h4>
-                    <h6> {item.subscribers} подписчиков</h6>
-                  </span>
-
-                  <button
-                    className={state ? "subscribe1" : "subscribe2"}
-                    onClick={() => {
-                      handleUpdateSubscribe(item.id);
-                    }}
-                  >
-                    Subscribe{item.subscribe}
-                  </button>
-                  <div className="likes">
-                    <button className="like">
-                      {isLike ? (
-                        <AiOutlineLike
-                          className="icon"
-                          onClick={() => {
-                            handleUpdateLike(item.id);
-                            setIsLike(!isLike);
-                          }}
-                        />
-                      ) : (
-                        <AiFillLike
-                          className="icon"
-                          onClick={() => {
-                            handleUpdateLike(item.id);
-                            setIsLike(!isLike);
-                          }}
-                        />
-                      )}
-                    </button>
-
-                    <p style={{ fontFamily: "Arial" }}>{item.like}</p>
-
-                    <button className="dislike">
-                      {isLike ? (
-                        <AiFillDislike
-                          className="icon"
-                          onClick={() => {
-                            handleUpdateDislike(item.id);
-                            setIsLike(!isLike);
-                          }}
-                        />
-                      ) : (
-                        <AiOutlineDislike
-                          className="icon"
-                          onClick={() => {
-                            handleUpdateDislike(item.id);
-                            setIsLike(!isLike);
-                          }}
-                        />
-                      )}
-                    </button>
-                  </div>
-                  {state ? <Modal /> : ""}
+                    <ul>
+                      {comment.map((item, index) => {
+                        return <li key={index}>{item.comment}</li>;
+                      })}
+                    </ul>
+                  </form>
+                  <div></div>
                 </div>
               </div>
-
-              <div className="commentBox">
-                <img src={item.imgUrl} alt="pinterest" />
-                <form onSubmit={handleSubmit}>
-                  <div className="inputBox">
-                    <input
-                      type="text"
-                      placeholder="Send Comment"
-                      onChange={handleInput}
-                      name="comment"
-                      ref={inputValue}
-                    />
-                    <button>Send</button>
-                  </div>
-
-                  <ul>
-                    {comment.map((item, index) => {
-                      return <li key={index}>{item.comment}</li>;
-                    })}
-                  </ul>
-                </form>
-                <div></div>
-              </div>
-            </div>
-          );
-        }
-      })}
-    </Box>
+            );
+          }
+        })}
+      </Box> */}
+    </ErrorBoundary>
   );
 };
 

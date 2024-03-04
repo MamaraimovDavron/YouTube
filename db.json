@@ -1,8 +1,6 @@
 {
   "posts": [
     {
-      "dislike": false,
-      "subscribe": true,
       "channelName": "National Geographic",
       "title": "How to use Axios in React (API Tutorial + Post Feed Project)",
       "link": "https://youtu.be/AstpAjPpu0U?si=1GFlLyLVnu8-WlEw",
@@ -10,6 +8,8 @@
       "comment": "How to use Axios in React 1709184198960",
       "subscribers": 150000,
       "like": 163,
+      "dislike": false,
+      "subscribe": true,
       "id": "0"
     },
     {

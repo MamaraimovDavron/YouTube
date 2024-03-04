@@ -20,13 +20,17 @@ import { useParams } from "react-router-dom";
 import Modal from "../../Modal";
 import ErrorBoundary from "../../../components/Drawer/ErrorBoundary/ErrorBoundary";
 import ErrorComment from "../../../components/Drawer/ErrorBoundary/ErrorComment";
+import { VideoModal } from "../../../components/Drawer/VideoModal";
 
 const Box = styled.div`
   width: 100%;
-  /* height: 90vh; */
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  .video {
+    height: 100px;
+    width: 100%;
+  }
   .details {
     height: 12vh;
     display: flex;
@@ -416,9 +420,14 @@ const FullScreen = () => {
         if (item.id === ID) {
           return (
             <div key={item.id}>
-              <ErrorBoundary>
-                <ReactPlayer width="100%" height="70vh" />
-              </ErrorBoundary>
+              <div className="video">
+                <VideoModal>
+                  <h1 style={{ fontFamily: "monospace" }}>
+                    This is done with <i>createPortal</i>
+                  </h1>
+                  <ReactPlayer url={item.link} />
+                </VideoModal>
+              </div>
               <div className="details">
                 <h3>{item.title}</h3>
                 <div className="others">

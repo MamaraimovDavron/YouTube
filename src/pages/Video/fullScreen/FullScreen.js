@@ -21,6 +21,7 @@ import Modal from "../../Modal";
 import ErrorBoundary from "../../../components/Drawer/ErrorBoundary/ErrorBoundary";
 import ErrorComment from "../../../components/Drawer/ErrorBoundary/ErrorComment";
 import { VideoModal } from "../../../components/Drawer/VideoModal";
+import { Profiler } from "react";
 
 const Box = styled.div`
   width: 100%;
@@ -232,6 +233,20 @@ const Box = styled.div`
 `;
 
 const FullScreen = () => {
+  const profilerCallback = (
+    id,
+    phase,
+    actualDuration,
+    baseDuration,
+    startTime,
+    commitTime
+  ) => {
+    console.log(
+      "Videolarni render qilish uchun ",
+      baseDuration,
+      " millisekund vaqt ketmoqda"
+    );
+  };
   const { ID } = useParams();
 
   console.log(ID, "useParams");
@@ -420,14 +435,17 @@ const FullScreen = () => {
         if (item.id === ID) {
           return (
             <div key={item.id}>
-              <div className="video">
+              {/* <div className="video">
                 <VideoModal>
                   <h1 style={{ fontFamily: "monospace" }}>
                     This is done with <i>createPortal</i>
                   </h1>
                   <ReactPlayer url={item.link} />
                 </VideoModal>
-              </div>
+              </div> */}
+              <Profiler id="VideoProfiler" onRender={profilerCallback}>
+                <ReactPlayer url={item.link} width="60%" height="60vh" />
+              </Profiler>
               <div className="details">
                 <h3>{item.title}</h3>
                 <div className="others">
